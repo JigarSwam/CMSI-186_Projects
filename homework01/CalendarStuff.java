@@ -5,7 +5,7 @@ Date        : 2018-01-18
 Class       : CMSI-186 Programming Lab
 Warnings    : None
 Description : Program which determines leap year, valid dates, days in a month
-              and Number of days between two Dates.
+              and number of days between two dates.
 */
 
 public class CalendarStuff {
