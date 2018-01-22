@@ -6,7 +6,3 @@ Class       : CMSI-186 Programming Lab
 Warnings    : None
 Description : Program which counts number of days between two dates.
 */
-
-public class CountTheDays {
-
-}
