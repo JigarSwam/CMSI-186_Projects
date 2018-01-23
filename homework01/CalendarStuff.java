@@ -10,7 +10,7 @@ Description : Program which determines leap year, valid dates, days in a month
 
 public class CalendarStuff {
 
- private static final int SUNDAY = 0;
+ private static final int SUNDAY = 1;
  private static final int MONDAY = SUNDAY + 1;
  private static final int TUESDAY = MONDAY + 1;
  private static final int WEDNESDAY = TUESDAY + 1;

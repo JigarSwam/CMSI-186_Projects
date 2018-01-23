@@ -31,14 +31,14 @@ public class CalendarStuffTester {
    * @return void
    */
    public static void main ( String [] args ) {
-    //-  test_isLeapYear();         // 11 tests
-    //-  test_daysInMonth();        // 13 tests
-    //-  test_isValidDate();        //  8 tests
-    //-  test_dateEquals();         //  5 tests
-    //-  test_compareDate();        //  7 tests
+      test_isLeapYear();         // 11 tests
+      test_daysInMonth();        // 13 tests
+      test_isValidDate();        //  8 tests
+      test_dateEquals();         //  5 tests
+      test_compareDate();        //  7 tests
       test_daysBetween();        // 12 tests
-    //-  test_toDayOfWeekString();  //  9 tests
-    //-  test_toMonthString();      // 14 tests
+      test_toDayOfWeekString();  //  9 tests
+      test_toMonthString();      // 14 tests
    }
 
   /**
