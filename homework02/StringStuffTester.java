@@ -29,14 +29,13 @@ public class StringStuffTester {
    */
    public static void main ( String [] args ) {
       System.out.println( "\nA TOTAL OF SIXTY-SEVEN TESTS TO CHECK OPERATION OF THE STRINGSTUFF CLASS METHODS");
-      test_containsVowel();      // fourteen tests
-      test_isPalindrome();       // eight tests
-      test_evensOnly();          // fill in how many tests
-      test_oddsOnly();           // fill in how many tests
-      test_evensOnlyNoDupes();   // fill in how many tests
-      test_oddsOnlyNoDupes();    // fill in how many tests
-      test_reverse();            // fill in how many tests
-      test_removeDupes();        // fill in how many tests
+    //-  test_containsVowel();      // fifteen tests
+    //-  test_isPalindrome();       // ten tests
+    //-  test_evensOnly();          // nine tests
+    //-  test_oddsOnly();           // nine tests
+    //-  test_evensOnlyNoDupes();   // eight tests
+    //-  test_oddsOnlyNoDupes();    // eight tests
+    //-  test_reverse();            // four tests
    }
 
   /**
@@ -340,29 +339,6 @@ public class StringStuffTester {
 
       System.out.print( "   Testing 'shut the front door 1234567890' should return 0987654321 rood tnorf eht tuhs: " );
       try { System.out.println( (0 == StringStuff.reverse( "shut the front door 1234567890" ).compareTo("0987654321 rood tnorf eht tuhs")) ? "got it" : "don't got it" ); }
-      catch( Exception e ) { System.out.println ( false ); }
-
-   }
-
-  /**
-   * test method to test out the operation of the removeDupes method
-   */
-   public static void test_removeDupes() {
-      System.out.println( "\nFOUR TESTS FOR removeDupes():" );
-      System.out.print( "   Testing 'xylophones' should return xylophnes: " );
-      try { System.out.println( (0 == StringStuff.removeDupes( "xylophones" ).compareTo( "xylophnes" )) ? "got it" : "don't got it" ); }
-      catch( Exception e ) { System.out.println ( false ); }
-
-      System.out.print( "   Testing 'XYloPHonES' should return XYloPHnES: " );
-      try { System.out.println( (0 == StringStuff.removeDupes( "XYloPHonES" ).compareTo("XYloPHnES")) ? "got it" : "don't got it" ); }
-      catch( Exception e ) { System.out.println ( false ); }
-
-      System.out.print( "   Testing 'AmanAplanAcAnalpAnamA' should return Amanplc: " );
-      try { System.out.println( (0 == StringStuff.removeDupes( "AmanAplanAcAnalpAnamA" ).compareTo("Amanplc")) ? "got it" : "don't got it" ); }
-      catch( Exception e ) { System.out.println ( false ); }
-
-      System.out.print( "   Testing 'shutTheFrontDoor11233455677890' should return shutTeFronD1234567890: " );
-      try { System.out.println( (0 == StringStuff.removeDupes( "shutTheFrontDoor11234567890" ).compareTo("shutTeFronD1234567890")) ? "got it" : "don't got it" ); }
       catch( Exception e ) { System.out.println ( false ); }
 
    }
