@@ -79,7 +79,7 @@ public class StringStuff {
        oddsNoDupes += odd.charAt(i);
      }
    }
-    System.out.println(oddsNoDupes);
+    //System.out.println(oddsNoDupes);
     return oddsNoDupes;
  }
 

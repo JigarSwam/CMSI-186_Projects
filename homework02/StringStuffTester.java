@@ -310,7 +310,7 @@ public class StringStuffTester {
       try { System.out.println( (0 == StringStuff.oddsOnlyNoDupes( "" ).compareTo("")) ? "got it" : "don't got it" ); }
       catch( Exception e ) { System.out.println ( false ); }
 
-      System.out.print( "   Testing 'California' should return caio: " );
+      System.out.print( "   Testing 'California' should return Caio: " );
       try { System.out.println( (0 == StringStuff.oddsOnlyNoDupes( "California" ).compareTo("Caio")) ? "got it" : "don't got it" ); }
       catch( Exception e ) { System.out.println ( false ); }
 
