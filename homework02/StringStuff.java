@@ -83,12 +83,6 @@ public class StringStuff {
     return oddsNoDupes;
  }
 
-/**
- * Method to return the reverse of a string passed as an argument
- *
- * @param s String containing the data to be reversed
- * @return  String containing the reverse of the input string
- */
  public static String reverse(String s) {
    char letter[] = s.toCharArray();
    String reverseString = "";
@@ -99,11 +93,6 @@ public class StringStuff {
    return reverseString;
  }
 
-/**
- * Main method to test the methods in this class
- *
- * @param args String array containing command line parameters
- */
  public static void main( String args[] ) {
     String blah = new String( "Blah blah blah" );
     String woof = new String( "BCDBCDBCDBCDBCD" );
