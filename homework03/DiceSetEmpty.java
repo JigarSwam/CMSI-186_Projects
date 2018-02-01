@@ -5,7 +5,7 @@ File Name       : DiceSetEmpty.java
 Date            : 2018-01-25
 Class           : CMSI-186 Programming Lab
 Warnings        : None
-Description     :
+Description     : <Fill>
 */
 
 public class DiceSetEmpty {
