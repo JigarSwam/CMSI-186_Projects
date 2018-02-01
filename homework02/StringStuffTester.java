@@ -29,13 +29,13 @@ public class StringStuffTester {
    */
    public static void main ( String [] args ) {
       System.out.println( "\nA TOTAL OF SIXTY-SEVEN TESTS TO CHECK OPERATION OF THE STRINGSTUFF CLASS METHODS");
-    //-  test_containsVowel();      // fifteen tests
-    //-  test_isPalindrome();       // ten tests
-    //-  test_evensOnly();          // nine tests
-    //-  test_oddsOnly();           // nine tests
-    //-  test_evensOnlyNoDupes();   // eight tests
+      test_containsVowel();      // fifteen tests
+      test_isPalindrome();       // ten tests
+      test_evensOnly();          // nine tests
+      test_oddsOnly();           // nine tests
+      test_evensOnlyNoDupes();   // eight tests
       test_oddsOnlyNoDupes();    // eight tests
-    //-  test_reverse();            // four tests
+      test_reverse();            // four tests
    }
 
   /**
