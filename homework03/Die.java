@@ -24,7 +24,7 @@ public class DieEmpty {
    * @throws       IllegalArgumentException
    * Note: parameter must be checked for validity; invalid value must throw "IllegalArgumentException"
    */
-   public DieEmpty( int nSides ) {
+   public DieEmpty(int nSides) {
    }
 
   /**
@@ -51,7 +51,7 @@ public class DieEmpty {
    * @return      The new number of sides, in case anyone is looking
    * @throws      IllegalArgumentException
    */
-   public void setSides( int sides ) {
+   public void setSides(int sides) {
    }
 
   /**
@@ -66,14 +66,14 @@ public class DieEmpty {
    * Class-wide method that returns a String representation of THIS die instance
    * @return String representation of this Die
    */
-   public static String toString( Die d ) {
+   public static String toString(Die d) {
       return "";
    }
 
   /**
    * A little test main to check things out
    */
-   public static void main( String[] args ) {
+   public static void main( String[] args) {
       System.out.println( "Hello world from the Die class..." );
    }
 
