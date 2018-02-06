@@ -22,7 +22,7 @@ public class DiceSet {
    * @throws IllegalArgumentException if one or both arguments don't make sense
    * @note   parameters are checked for validity; invalid values throw "IllegalArgumentException"
    */
-   public DiceSetEmpty(int count, int sides) {
+   public DiceSet(int count, int sides) {
       ds = new Die[count];
    }
 

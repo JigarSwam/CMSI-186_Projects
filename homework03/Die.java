@@ -5,10 +5,10 @@ File Name       : Die.java
 Date            : 2018-01-25
 Class           : CMSI-186 Programming Lab
 Warnings        : None
-Description     : <Fill>
+Description     : Data fields and methods to describe a single game die
 */
 
-public class DieEmpty {
+public class Die {
 
   /**
    * private instance data
@@ -17,14 +17,14 @@ public class DieEmpty {
    private int pips;
    private final int MINIMUM_SIDES = 4;
 
-   // public constructor:
   /**
    * constructor
    * @param nSides int value containing the number of sides to build on THIS Die
    * @throws       IllegalArgumentException
    * Note: parameter must be checked for validity; invalid value must throw "IllegalArgumentException"
    */
-   public DieEmpty(int nSides) {
+   public Die(int nSides) {
+     sides = nSides;
    }
 
   /**
@@ -32,7 +32,8 @@ public class DieEmpty {
    * @return  integer value of the result of the roll, randomly selected
    */
    public int roll() {
-      return 0;
+     pips = (int) (Math.random() * this.sides + 1);
+     return pips;
    }
 
   /**
@@ -43,7 +44,7 @@ public class DieEmpty {
    * @return the pip count of THIS die instance
    */
    public int getValue() {
-      return 0;
+     return this.pips;
    }
 
   /**
@@ -52,6 +53,8 @@ public class DieEmpty {
    * @throws      IllegalArgumentException
    */
    public void setSides(int sides) {
+     this.sides = sides;
+     this.roll();     
    }
 
   /**
