@@ -53,8 +53,7 @@ public class Die {
    * @throws      IllegalArgumentException
    */
    public void setSides(int sides) {
-     this.sides = sides;
-     this.roll();     
+      this.sides = sides;
    }
 
   /**
@@ -62,7 +61,8 @@ public class Die {
    * @return String representation of this Die
    */
    public String toString() {
-      return "";
+     String stringify = "[" + pips + "]";
+      return stringify;
    }
 
   /**
@@ -70,14 +70,7 @@ public class Die {
    * @return String representation of this Die
    */
    public static String toString(Die d) {
-      return "";
-   }
-
-  /**
-   * A little test main to check things out
-   */
-   public static void main( String[] args) {
-      System.out.println( "Hello world from the Die class..." );
+      return d.toString();
    }
 
 }
