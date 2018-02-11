@@ -17,8 +17,15 @@ public class DieTester {
   }
 
   public static void test_getValue() {
-    try {Die d = new Die(6)};
+    Die d = new Die(6);
+  }
 
+  public static void test_setSides() {
+    Die d = new Die(6);
+  }
+
+  public static void test_toString() {
+    Die d = new Die(6);
   }
 
 
