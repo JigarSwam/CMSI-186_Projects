@@ -33,6 +33,7 @@ public class DiceSet {
 
   /**
    * @return the sum of all the dice values in the set
+   * roll each die and add values
    */
    public int sum() {
       return 0;
@@ -45,8 +46,9 @@ public class DiceSet {
    */
    public void roll() {
      for(int i = 0; i < ds.length - 1; i++) {
-       
+       String values = ds[i].roll().toString();
      }
+     System.out.println(values);
    }
 
   /**
