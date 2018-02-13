@@ -23,7 +23,12 @@ public class DiceSet {
    * @note   parameters are checked for validity; invalid values throw "IllegalArgumentException"
    */
    public DiceSet(int count, int sides) {
-      ds = new Die[count];
+     this.count = count;
+     this.sides = sides;
+     ds = new Die[count];
+     for(int i = 0; i < count; i++) {
+       ds[i] = new Die(sides);
+     }
    }
 
   /**
@@ -39,6 +44,9 @@ public class DiceSet {
    *  the values of the dice in the set
    */
    public void roll() {
+     for(int i = 0; i < ds.length - 1; i++) {
+       
+     }
    }
 
   /**
