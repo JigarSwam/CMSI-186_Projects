@@ -4,7 +4,7 @@ File Name       : DieTester.java
 Date            : 2018-01-25
 Class           : CMSI-186 Programming Lab
 Warnings        : None
-Description     : Tests for Die.java
+Description     : Tests for Die.java methods
 */
 public class DieTester {
 
