@@ -1,5 +1,12 @@
+/*
+Original Author : Jigar Swaminarayan
+File Name       : DieTester.java
+Date            : 2018-01-25
+Class           : CMSI-186 Programming Lab
+Warnings        : None
+Description     : Tests for Die.java
+*/
 public class DieTester {
-
 
   public static void main ( String [] args ) {
     Die d = null;
