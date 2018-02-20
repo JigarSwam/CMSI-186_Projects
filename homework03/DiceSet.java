@@ -38,7 +38,7 @@ public class DiceSet {
    */
    public int sum() {
      int sum = 0;
-     for(int i = 0; i < ds.length - 1; i++) {
+     for(int i = 0; i < ds.length; i++) {
        sum += ds[i].roll();
      }
       return sum;
@@ -51,7 +51,7 @@ public class DiceSet {
    */
    public void roll() {
     String result = "";
-    for (int i=0; i < ds.length - 1; i++){
+    for (int i=0; i < ds.length; i++){
       result += new Integer(ds[i].roll()).toString() + " ";
    }
    System.out.println(result);

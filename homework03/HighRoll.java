@@ -12,6 +12,8 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 
 public class HighRoll{
+  private static int sum = 0;
+  private static int highScore = 0;
 
    public static void main( String args[] ) {
       System.out.println( "\n   Welcome to High Roll!\n" );
@@ -43,16 +45,24 @@ public class HighRoll{
               dSet.roll();
             }
             else if('2' == inputLine.charAt(0)) {
-              dSet.rollIndividual(index);
+              try{
+                System.out.println("Which die do you want to roll? ");
+                System.out.println(dSet.rollIndividual(Integer.parseInt(input.readLine())));
+              }
+              catch( IOException ioe ) {
+                 System.out.println( "Caught IOException" );
+               }
             }
             else if('3' == inputLine.charAt(0)) {
-              dSet.sum();
+              sum = dSet.sum();
+              System.out.println(sum);
             }
-            else if('4' == inputLine.charaAt(0)) {
-              
+            else if('4' == inputLine.charAt(0)) {
+              highScore = dSet.sum();
+              System.out.println(highScore);
             }
             else if('5' == inputLine.charAt(0)) {
-              dSet.toString();
+              System.out.println(dSet.toString());
             }
          }
          catch( IOException ioe ) {
