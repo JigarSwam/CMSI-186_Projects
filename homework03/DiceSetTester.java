@@ -20,14 +20,16 @@ public class DiceSetTester {
     try{ds = new DiceSet(3, 3);}
     catch (IllegalArgumentException iae) {System.out.println ("Too few sides requested to constructor...");}
 
+
     try{ds = new DiceSet(4, 4);}
     catch (IllegalArgumentException iae) {System.out.println ("Too few sides or too few die requested to constructor...");}
-    System.out.println("roll() test for a 4 die with 4 sides");
+    System.out.println("roll() test for 4 die with 4 sides");
     System.out.println("You rolled " + ds.toString());
     System.out.println("Your value is " + ds.sum());
-    System.out.println("An individual role of the third die " + ds.rollIndividual(2));
-    System.out.println("An individual value of that role is " + ds.getIndividual(2));
+    System.out.println("An individual role of the first die " + ds.rollIndividual(0));
+    System.out.println("An individual value of that role is " + ds.getIndividual(0));
     System.out.println("An individual role of the sixth die, should be error " + ds.rollIndividual(5));
+
   }
 
 }

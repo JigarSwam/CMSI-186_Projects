@@ -58,7 +58,7 @@ public class HighRoll{
               System.out.println(sum);
             }
             else if('4' == inputLine.charAt(0)) {
-              highScore = dSet.sum();
+              highScore = sum;
               System.out.println(highScore);
             }
             else if('5' == inputLine.charAt(0)) {
