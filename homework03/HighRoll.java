@@ -59,6 +59,7 @@ public class HighRoll{
             }
             else if('4' == inputLine.charAt(0)) {
               highScore = sum;
+              System.out.println("Score Saved");
             }
             else if('5' == inputLine.charAt(0)) {
               System.out.println(sum);
