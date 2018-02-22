@@ -39,7 +39,7 @@ public class DiceSet {
    */
    public int sum() {
      for(int i = 0; i < ds.length; i++) {
-       sum += ds[i].roll();
+       sum += ds[i].getValue();
      }
       return sum;
    }
@@ -84,7 +84,7 @@ public class DiceSet {
    public String toString() {
       String result = "";
       for(int i = 0; i < ds.length; i++) {
-         result += new Integer(ds[i].roll()).toString() + " ";
+         result += new Integer(ds[i].getValue()).sum()toString() + " ";
       }
       return result;
    }

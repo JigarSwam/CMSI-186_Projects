@@ -59,10 +59,9 @@ public class HighRoll{
             }
             else if('4' == inputLine.charAt(0)) {
               highScore = sum;
-              System.out.println(highScore);
             }
             else if('5' == inputLine.charAt(0)) {
-              System.out.println(dSet.toString());
+              System.out.println(sum);
             }
          }
          catch( IOException ioe ) {
