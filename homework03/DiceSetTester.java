@@ -28,7 +28,6 @@ public class DiceSetTester {
     System.out.println("Your value is " + ds.sum());
     System.out.println("An individual role of the first die " + ds.rollIndividual(0));
     System.out.println("An individual value of that role is " + ds.getIndividual(0));
-    System.out.println("An individual role of the sixth die, should be error " + ds.rollIndividual(5));
 
     try{ds = new DiceSet(5, 5);}
     catch (IllegalArgumentException iae) {System.out.println ("Too few sides or too few die requested to constructor...");}
@@ -37,7 +36,6 @@ public class DiceSetTester {
     System.out.println("Your value is " + ds.sum());
     System.out.println("An individual role of the first die " + ds.rollIndividual(0));
     System.out.println("An individual value of that role is " + ds.getIndividual(0));
-    System.out.println("An individual role of the sixth die, should be error " + ds.rollIndividual(5));
 
     try{ds = new DiceSet(5, 6);}
     catch (IllegalArgumentException iae) {System.out.println ("Too few sides or too few die requested to constructor...");}
