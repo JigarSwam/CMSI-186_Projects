@@ -1,12 +1,9 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  File name     :  Clock.java
- *  Purpose       :  Provides a class defining methods for the ClockSolver class
  *  @author       :  B.J. Johnson
+ *  Modified By   :  Jigar Swaminarayan
  *  Date written  :  2017-02-28
- *  Description   :  This class provides a bunch of methods which may be useful for the ClockSolver class
- *                   for Homework 4, part 1.  Includes the following:
- *
- *  Notes         :  None right now.  I'll add some as they occur.
+ *  Description   :  Class that had methods to be used for ClockSolver.java
  *  Warnings      :  None
  *  Exceptions    :  IllegalArgumentException when the input arguments are "hinky"
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -26,11 +23,14 @@ public class Clock {
    private static final double MAXIMUM_DEGREE_VALUE = 360.0;
    private static final double HOUR_HAND_DEGREES_PER_SECOND = 0.00834;
    private static final double MINUTE_HAND_DEGREES_PER_SECOND = 0.1;
+   private double totalSeconds = 0;
+   private double targetAngle = 0;
 
   /**
    *  Constructor goes here
    */
-   public Clock() {
+   public Clock(double angle, double timeSlice) {
+     targetAngle = angle % 360;
 
    }
 
@@ -41,16 +41,16 @@ public class Clock {
    *  @return double-precision value of the current clock tick
    */
    public double tick() {
-      return 0.0;
+      return totalSeconds += timeSlice;
    }
 
   /**
    *  Method to validate the angle argument
-   *  @param   argValue  String from the main programs args[0] input
+   *  @param   argValue String from the main programs args[0] input
    *  @return  double-precision value of the argument
    *  @throws  NumberFormatException
    */
-   public double validateAngleArg( String argValue ) throws NumberFormatException {
+   public double validateAngleArg(String argValue) throws NumberFormatException {
       return 0.0;
    }
 
@@ -65,7 +65,7 @@ public class Clock {
    *  note: remember that the time slice, if it is small will cause the simulation
    *         to take a VERY LONG TIME to complete!
    */
-   public double validateTimeSliceArg( String argValue ) {
+   public double validateTimeSliceArg(String argValue ) {
       return 0.0;
    }
 

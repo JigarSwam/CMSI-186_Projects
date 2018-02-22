@@ -1,12 +1,9 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  File name     :  ClockSolver.java
- *  Purpose       :  The main program for the ClockSolver class
- *  @see
  *  @author       :  B.J. Johnson
+ *  Modified By   :  Jigar Swaminarayan
  *  Date written  :  2017-02-28
- *  Description   :  This class provides a bunch of methods which may be useful for the ClockSolver class
- *                   for Homework 4, part 1.  Includes the following:
- *  Notes         :  None
+ *  Description   :  Main class to solve clock degrees.
  *  Warnings      :  None
  *  Exceptions    :  IllegalArgumentException when the input arguments are "hinky"
 
@@ -41,7 +38,7 @@ public class ClockSolverEmpty {
          System.out.println( "   Sorry you must enter at least one argument\n" +
                              "   Usage: java ClockSolver <angle> [timeSlice]\n" +
                              "   Please try again..........." );
-         System.exit( 1 );
+         System.exit(1);
       }
       Clock clock = new Clock();
    }
@@ -55,8 +52,8 @@ public class ClockSolverEmpty {
    *                args[1] is the time slice; this is optional and defaults to 60 seconds
    */
    public static void main( String args[] ) {
-      ClockSolverEmpty cse = new ClockSolverEmpty();
-      ClockEmpty clock    = new ClockEmpty();
+      ClockSolver cse = new ClockSolver();
+      Clock clock    = new Clock();
       double[] timeValues = new double[3];
       cse.handleInitialArguments( args );
       while( true ) {
