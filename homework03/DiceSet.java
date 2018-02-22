@@ -13,7 +13,6 @@ public class DiceSet {
    private int count;
    private int sides;
    private Die[] ds = null;
-   private int sum = 0;
 
    // public constructor:
   /**
@@ -38,6 +37,7 @@ public class DiceSet {
    * roll each die and add values
    */
    public int sum() {
+     int sum = 0;
      for(int i = 0; i < ds.length; i++) {
        sum += ds[i].getValue();
      }
