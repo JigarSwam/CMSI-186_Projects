@@ -6,14 +6,17 @@
  *  Description   :  Main class to solve clock degrees.
  *  Warnings      :  None
  *  Exceptions    :  IllegalArgumentException when the input arguments are "hinky"
-
-public class ClockSolverEmpty {
+**/
+public class ClockSolver {
   /**
    *  Class field definintions go here
    */
    private final double MAX_TIME_SLICE_IN_SECONDS  = 1800.00;
    private final double DEFAULT_TIME_SLICE_SECONDS = 60.0;
-   private final double EPSILON_VALUE              = 0.1;      // small value for double-precision comparisons
+   private static final double EPSILON_VALUE = 0.001;      // small value for double-precision comparisons
+   private static double angle = 0;
+   private static double timeSlice = 0;
+   private static double targetAngle = 0;
 
   /**
    *  Constructor
@@ -40,7 +43,7 @@ public class ClockSolverEmpty {
                              "   Please try again..........." );
          System.exit(1);
       }
-      Clock clock = new Clock();
+      Clock clock = new Clock(angle, timeSlice);
    }
 
   /**
@@ -51,14 +54,20 @@ public class ClockSolverEmpty {
    *                args[0] is the angle for which we are looking
    *                args[1] is the time slice; this is optional and defaults to 60 seconds
    */
-   public static void main( String args[] ) {
+   public static void main(String args[]) {
       ClockSolver cse = new ClockSolver();
-      Clock clock    = new Clock();
+      Clock clock = new Clock(angle, timeSlice);
       double[] timeValues = new double[3];
       cse.handleInitialArguments( args );
-      while( true ) {
-         break;
+      while(true) {
+         clock.tick();
+         if(EPSILON_VALUE >= Math.abs(targetAngle - clock.getHandAngle())) {
+           clock.toString();
+         }
+         if(clock.getTotalSeconds() > 3600 * 12) {
+           break;
+         }
       }
-      System.exit( 0 );
+      System.exit(0);
    }
 }
