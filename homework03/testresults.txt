@@ -1,0 +1,638 @@
+Too few sides requested to constructor...
+Too few sides requested to constructor...
+Too few sides requested to constructor...
+roll() test for a 4 sided die
+You rolled a 2
+Your value is 2
+[2]
+You rerolled a 3
+You rerolled a 4
+roll() test for a 5 sided die
+You rolled a 1
+Your value is 1
+[1]
+You rerolled a 3
+You rerolled a 4
+roll() test for a 6 sided die
+You rolled a 1
+Your value is 1
+[1]
+You rerolled a 5
+You rerolled a 4
+roll() test for a 7 sided die
+You rolled a 4
+Your value is 4
+[4]
+You rerolled a 4
+You rerolled a 1
+roll() test for a 8 sided die
+You rolled a 3
+Your value is 3
+[3]
+You rerolled a 8
+You rerolled a 7
+roll() test for a 9 sided die
+You rolled a 8
+Your value is 8
+[8]
+You rerolled a 1
+You rerolled a 4
+roll() test for a 10 sided die
+You rolled a 9
+Your value is 9
+[9]
+You rerolled a 4
+You rerolled a 1
+roll() test for a 11 sided die
+You rolled a 5
+Your value is 5
+[5]
+You rerolled a 1
+You rerolled a 11
+Restting current die side count to 12
+roll() test for a 11 sided die
+You rolled a 5
+Your value is 5
+[5]
+You rerolled a 9
+You rerolled a 11
+Too few sides requested to constructor...
+Too few sides requested to constructor...
+Too few sides requested to constructor...
+roll() test for 4 die with 4 sides
+You rolled 2 3 1 4
+Your value is 10
+An individual role of the first die 2
+An individual value of that role is 2
+roll() test for 5 die with 5 sides
+You rolled 2 2 5 3 1
+Your value is 13
+An individual role of the first die 5
+An individual value of that role is 5
+roll() test for 5 die with 6 sides
+You rolled 1 4 3 4 6
+Your value is 18
+An individual role of the first die 4
+An individual value of that role is 4
+TESTING THE DIE CLASS: TEST CONSTRUCTOR FOR INVALID NUMBERS OF SIDES:
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+TESTING THE DIE CLASS: TESTS ON 4-SIDED DIE:
+   roll() test for 4 sided die:
+   You rolled a 1
+   You rolled a 1
+   You rolled a 4
+   You rolled a 4
+   You rolled a 1
+   Current value is: [1]
+TESTING THE DIE CLASS: TESTS ON 5-SIDED DIE:
+   roll() test for 5 sided die:
+   You rolled a 2
+   You rolled a 2
+   You rolled a 3
+   You rolled a 2
+   You rolled a 1
+   Current value is: [1]
+TESTING THE DIE CLASS: TESTS ON 6-SIDED DIE:
+   roll() test for 6 sided die:
+   You rolled a 6
+   You rolled a 4
+   You rolled a 1
+   You rolled a 2
+   You rolled a 2
+   Current value is: [2]
+TESTING THE DIE CLASS: TESTS ON 7-SIDED DIE:
+   roll() test for 7 sided die:
+   You rolled a 4
+   You rolled a 5
+   You rolled a 3
+   You rolled a 6
+   You rolled a 5
+   Current value is: [5]
+TESTING THE DIE CLASS: TESTS ON 8-SIDED DIE:
+   roll() test for 8 sided die:
+   You rolled a 3
+   You rolled a 7
+   You rolled a 5
+   You rolled a 8
+   You rolled a 1
+   Current value is: [1]
+TESTING THE DIE CLASS: TESTS ON 11-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count --
+      You rolled a 7
+      You rolled a 4
+      You rolled a 4
+      You rolled a 1
+      You rolled a 2
+TESTING THE DIE CLASS: TESTS ON 17-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count --
+      You rolled a 9
+      current value is: 9
+TESTING THE DIE CLASS: TESTS ON 111-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count --
+      You rolled a 20
+      current value is: 20
+......End of Die Class Testing.....
+
+
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 3 SIX-SIDED DICE:
+  DiceSet: 3 dice, six sided - ds36:
+      initialized ds36 contents             : 5 4 1
+6 1 1
+      after collective roll ds36 contents   : 5 6 2
+      after individual roll(2) ds36 contents: 2 5 3
+      sum of dice values is: 10
+   Re-rolling all dice
+4 2 2
+      after collective roll ds36 contents   : 4 4 4
+      after individual roll(2) ds36 contents: 6 2 4
+      sum of dice values is                 : 12
+   Test of getIndividual():
+      value of die at index 0: 6
+      value of die at index 1: 2
+      value of die at index 2: 4
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 6 NINE-SIDED DICE:
+   DiceSet: 6 dice, nine sided - ds69:
+      initialized ds36 contents             : 9 9 4 9 9 6
+5 1 6 8 3 5
+      after collective roll ds69 contents   : 8 1 7 1 7 5
+      after individual roll(2) ds69 contents: 8 2 6 5 6 6
+      sum of dice values is                 : 33
+   Re-rolling all dice
+9 9 9 9 4 9
+      after collective roll ds69 contents   : 8 9 5 7 9 8
+      after individual roll(3) ds69 contents: 2 3 8 3 3 1
+      sum of dice values is                 : 20
+   Test of getIndividual():
+      value of die at index 0: 2
+      value of die at index 1: 3
+      value of die at index 2: 8
+      value of die at index 3: 3
+      value of die at index 4: 3
+      value of die at index 5: 1
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 9 SEVENTEEN-SIDED DICE:
+   DiceSet: 9 dice, 17 sided - ds917:
+      initialized ds36 contents              : 10 14 3 4 11 16 7 13 16
+1 16 16 2 14 8 9 4 2
+      after collective roll ds917 contents   : 16 6 13 3 9 15 16 10 12
+      after individual roll(6) ds917 contents: 13 1 13 5 5 14 16 10 17
+      sum of dice values is                  : 94
+   Re-rolling all dice
+8 15 12 17 14 10 5 6 14
+      after collective roll ds917 contents   : 1 7 6 15 7 7 9 12 13
+      after individual roll(8) ds69 contents : 9 9 11 3 11 11 8 14 2
+      sum of dice values is                  : 78
+   Test of getIndividual():
+      value of die at index 0: 9
+      value of die at index 1: 9
+      value of die at index 2: 11
+      value of die at index 3: 3
+      value of die at index 4: 11
+      value of die at index 5: 11
+      value of die at index 6: 8
+      value of die at index 7: 14
+      value of die at index 8: 2
+TESTING THE DICESET CLASS: TEST 'isIdentical()' FOR 9 SEVENTEEN-SIDED DICE:
+   Test of isIndentical():
+      Test of ds917 against ds69   : false
+      Test of ds917 against itself : true
+TESTING THE DICESET CLASS: TEST 'isIdentical()' FOR NEW SET OF 9 SEVENTEEN-SIDED DICE:
+8 8 9 14 1 17 12 15 4
+10 2 11 1 3 5 6 7 11
+   DiceSet ds917 contents       : 1 10 12 12 17 15 1 6 11
+      New DiceSet ds2_917 contents : 11 14 2 8 12 11 3 17 16
+      Test of ds917 against ds2_917: false
+......End of DiceSet Class Testing.....
+
+
+
+   Welcome to High Roll!
+
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+6 3 6 1 4 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+2 4 2 2 5 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+5 3 5 3 5 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+3
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+4
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+2
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 3
+17
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 4
+Score Saved
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 5
+17
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+5 1 5 3 4 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+2 4 1 2 2 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+6
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+4
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 3
+17
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 4
+Score Saved
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 5
+17
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: q
+
+   Welcome to High Roll!
+
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+6 13 7 17 6 15 14 17 2 15 15 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+6 2 9 13 2 5 4 2 14 12 12 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+1 5 7 5 7 6 16 9 16 11 10 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+17
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+1
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+13
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 3
+104
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 4
+Score Saved
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 5
+104
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+1 8 2 1 8 15 14 14 16 3 1 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+12 12 9 15 13 15 6 3 11 6 8 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+1
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+4
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 3
+85
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 4
+Score Saved
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 5
+85
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: q
+
+   Welcome to High Roll!
+
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+1 4 2 4 3 1 3 4 2 2 4 4 2 4 2 1 2 1 1 1 4 3 1 1 4 2 4 2 4 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+3 4 1 4 3 2 3 2 4 3 3 1 2 1 2 3 1 3 1 1 2 4 1 2 2 2 1 4 3 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+1 2 2 1 1 1 3 2 1 1 1 3 2 3 2 1 1 4 1 3 4 1 2 4 4 2 1 4 1 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+4
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+2
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+3
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 3
+62
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 4
+Score Saved
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 5
+62
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+4 1 3 2 3 4 4 1 1 4 3 3 4 3 4 3 2 3 4 3 1 3 2 2 2 2 2 4 4 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 1
+4 3 3 3 4 1 2 4 2 1 1 2 1 4 3 2 4 1 4 1 2 4 2 4 3 1 1 1 1 
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+2
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 2
+Which die do you want to roll? 
+2
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 3
+68
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 4
+Score Saved
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: 5
+68
+Press the 'q' key to quit the program.
+Press '1' to roll all the die! 
+Press '2' to role one die. 
+Press '3' to calculate the score of all the die. 
+Press '4' to save the score as a high score. 
+Press '5' to display the high score. 
+>>    You typed: q
