@@ -8,8 +8,7 @@
  *  Exceptions    :  None
 **/
 public class SoccerSim {
-  private final double RADIUS_IN_INCHES = 4.45;
-  private final double WEIGHT_IN_POUNDS = 1;
+  public static void public static void main(String[] args) {
 
-
+  }
 }
