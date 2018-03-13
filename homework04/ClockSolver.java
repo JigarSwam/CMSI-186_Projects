@@ -13,7 +13,7 @@ public class ClockSolver {
    */
    private final double MAX_TIME_SLICE_IN_SECONDS  = 1800.00;
    private final double DEFAULT_TIME_SLICE_SECONDS = 60.0;
-   private static final double EPSILON_VALUE = 0.001;      // small value for double-precision comparisons
+   private static final double EPSILON_VALUE = 5;      // small value for double-precision comparisons
    private static double angle = 0;
    private static double timeSlice = 0;
    private static double targetAngle = 0;
@@ -30,7 +30,7 @@ public class ClockSolver {
    *  Method to handle all the input arguments from the command line
    *   this sets up the variables for the simulation
    */
-   public void handleInitialArguments( String args[] ) {
+   public void handleInitialArguments(String args[]) {
      // args[0] specifies the angle for which you are looking
      //  your simulation will find all the angles in the 12-hour day at which those angles occur
      // args[1] if present will specify a time slice value; if not present, defaults to 60 seconds
@@ -42,6 +42,14 @@ public class ClockSolver {
                              "   Usage: java ClockSolver <angle> [timeSlice]\n" +
                              "   Please try again..........." );
          System.exit(1);
+      }
+      if(1 == args.length) {
+        targetAngle = Double.parseDouble(args[0]);
+        timeSlice = DEFAULT_TIME_SLICE_SECONDS;
+      }
+      if(2 == args.length) {
+        targetAngle = Double.parseDouble(args[0]);
+        timeSlice = Double.parseDouble(args[1]);
       }
       Clock clock = new Clock(angle, timeSlice);
    }
@@ -56,17 +64,24 @@ public class ClockSolver {
    */
    public static void main(String args[]) {
       ClockSolver cse = new ClockSolver();
-      Clock clock = new Clock(angle, timeSlice);
+      Clock clock = new Clock();
+      if(args.length == 1) {
+         clock = new Clock(Double.parseDouble(args[0]));
+      }
+      if(args.length == 2) {
+         clock = new Clock(Double.parseDouble(args[0]), Double.parseDouble(args[1]));
+      }
       double[] timeValues = new double[3];
       cse.handleInitialArguments( args );
-      while(true) {
+      int totalTime = 43200;
+      System.out.println(clock);
+      while(clock.getTotalSeconds() < totalTime) {
+         if(EPSILON_VALUE >= targetAngle - clock.getHandAngle() && targetAngle - clock.getHandAngle() >= 0 ||
+          clock.getHandAngle() - targetAngle <= EPSILON_VALUE && clock.getHandAngle() - targetAngle >= 0) {
+           System.out.println(clock.getHourHandAngle());
+           System.out.println(clock);
+         }
          clock.tick();
-         if(EPSILON_VALUE >= Math.abs(targetAngle - clock.getHandAngle())) {
-           clock.toString();
-         }
-         if(clock.getTotalSeconds() > 3600 * 12) {
-           break;
-         }
       }
       System.exit(0);
    }
