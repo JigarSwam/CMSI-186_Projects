@@ -36,4 +36,5 @@ Public class Ball {
   * 2ft/seconds
   * c = sqrt(a^2 + b^2)
   * ball needs to update itself
+  * validate arguments
 **/
