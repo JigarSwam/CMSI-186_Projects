@@ -12,68 +12,50 @@ public class Ball {
   private final double FRICTION_PERCENT_PER_SECOND = .99;
   private final double DEFAULT_X_LOCATION = 0;
   private final double DEFAULT_Y_LOCATION = 0;
-  private final double DEFAULT_X_VELOCITY = 1;
-  private final double DEFAULT_Y_VELOCITY = 1;
-  private final double DEFAULT_X2_LOCATION = 50;
-  private final double DEFAULT_Y2_LOCATION = 50;
-  private static final double DEFAULT_TIME_SLICE_IN_SECONDS = 60.0;
+  private final double DEFAULT_X_VELOCITY_FEET = 2;
+  private final double DEFAULT_Y_VELOCITY_FEET = 2;
+  private static final double DEFAULT_TIME_SLICE_IN_SECONDS = 1.0;
+  private static final double EPSILON_VALUE = 0.01;
 
-  private double ballOneX = 0;
-  private double ballOneY = 0;
-  private double ballOneXVelocity = 0;
-  private double ballOneYVelocity = 0;
+  private double ballX = 0;
+  private double ballY = 0;
+  private double ballXVelocity = 0;
+  private double ballYVelocity = 0;
+  private double[] velocity = {0, 0};
 
-  private double ballTwoX = 0;
-  private double ballTwoY = 0;
-  private double ballTwoXVelocity = 0;
-  private double ballTwoYVelocity = 0;
+  private static double timeSlice = 0;
 
   public Ball() {
-    ballOneX = DEFAULT_X_LOCATION;
-    ballOneY = DEFAULT_Y_LOCATION;
-    ballOneXVelocity = DEFAULT_X_VELOCITY;
-    ballOneYVelocity = DEFAULT_Y_VELOCITY;
+    ballX = DEFAULT_X_LOCATION;
+    ballY = DEFAULT_Y_LOCATION;
+    ballXVelocity = DEFAULT_X_VELOCITY_FEET;
+    ballYVelocity = DEFAULT_Y_VELOCITY_FEET;
+    velocity[0] = ballXVelocity;
+    velocity[1] = ballYVelocity;
 
-    ballTwoX = DEFAULT_X2_LOCATION;
-    ballTw0Y = DEFAULT_Y2_LOCATION;
-    ballTwoXVelocity = DEFAULT_X_VELOCITY;
-    ballTwoYVelocity = DEFAULT_Y_VELOCITY;
+    timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
   }
 
-  public Ball(double xOneLoc, double yOneLoc, double xOneVel, double yOneVel,
-              double xTwoLoc, double yTwoLoc, double xTwoVel, double yTwoVel) {
-    ballOneX = xOneLoc;
-    ballOneY = yOneloc;
-    ballOneXVelocity = xOneVel;
-    ballOneYVelocity = yOneVel;
+  public Ball(double xLoc, double yLoc, double xVel, double yVel) {
+    ballX = xLoc;
+    ballY = yLoc;
+    ballXVelocity = xVel;
+    ballYVelocity = yVel;
 
-    ballTwoX = xTwoLoc;
-    ballTwoY = yTwoloc;
-    ballTwoXVelocity = xTwoVel;
-    ballOneYVelocity = yTwoVel;
+    timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
   }
 
-  // calcLocation()
+  //public double[] calcLocation()
   // calcVelocity()
-  // validateVelocity()
-  // validateLocation()
-  // hasCollided()
+  // validateVelocity() - vel > 0
+  // validateLocation() - vel > 0
+  // toString()
 
 }
 
 
 /**
   * Notes:
-  ----------------------- Ball 1
-  * args[0] - x location
-  * args[1] - y location
-  * args[2] - x move
-  * args[3] - y move
-  ----------------------- Ball 2
-  * args[4] - x location
-  * args[5] - y location
-  * args[6] - x move
-  * args[7] - y move
 
   * Speed dec @1% / seconds
   * 2ft/seconds
@@ -81,4 +63,5 @@ public class Ball {
   * ball needs to update itself
   * validate arguments
   * epsilon value
+  * V(f) = V(0) - ((V(0) * 0.01) * timeSlice);
 **/

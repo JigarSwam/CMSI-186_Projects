@@ -8,7 +8,7 @@
  *  Exceptions    :  None
 **/
 public class SoccerSim {
-  public static void public static void main(String[] args) {
+  public static void main(String[] args) {
 
   }
 }
@@ -17,5 +17,6 @@ public class SoccerSim {
 /**
   * whileCollisionOcurred
   * collisionNotPossible
+  * hasCollided()
 
 **/
