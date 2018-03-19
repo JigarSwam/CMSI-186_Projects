@@ -47,9 +47,18 @@ public class Ball {
 
   //public double[] calcLocation()
   // calcVelocity()
-  // validateVelocity() - vel > 0
+   public double validateVelocity(String velocity) {
+     double newVel = Double.parseDouble(velocity);
+     if(newVel > 0) {
+       return (newVel);
+     }
+     return -1;
+   }
   // validateLocation() - vel > 0
   // toString()
+  public static void main(String args[]) {
+
+  }
 
 }
 
