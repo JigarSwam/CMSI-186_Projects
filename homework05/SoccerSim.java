@@ -11,7 +11,9 @@ public class SoccerSim {
 
   private final double FIELD_X = 500;
   private final double FIELD_Y = 500;
-  private final double QUAD_1
+
+  private final double QUAD_1_WIDTH = 250;
+  private final double QUAD_2_WIDTH = 250;
 
   public double validateVelocity(String velocity) { //check not bigger than size of field, doesn't jump off field right away
     double newVel = Double.parseDouble(velocity);
