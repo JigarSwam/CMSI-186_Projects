@@ -21,7 +21,6 @@ public class Ball {
   private double ballY = 0;
   private double ballXVelocity = 0;
   private double ballYVelocity = 0;
-  private double[] velocity = {0, 0};
 
   private static double timeSlice = 0;
 
@@ -30,8 +29,6 @@ public class Ball {
     ballY = DEFAULT_Y_LOCATION;
     ballXVelocity = DEFAULT_X_VELOCITY_FEET;
     ballYVelocity = DEFAULT_Y_VELOCITY_FEET;
-    velocity[0] = ballXVelocity;
-    velocity[1] = ballYVelocity;
 
     timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
   }
@@ -45,17 +42,20 @@ public class Ball {
     timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
   }
 
-  //public double[] calcLocation()
-  // calcVelocity()
-   public double validateVelocity(String velocity) {
+  public void move() {
+    ballX += ballXVelocity;
+    ballY += ballYVelocity;
+    ballXVelocity = ballXVelocity - ((ballXVelocity * 0.01) * timeSlice);
+    ballYVelocity = ballYVelocity - ((ballYVelocity * 0.01) * timeSlice);
+  }
+   public double validateVelocity(String velocity) { //check not bigger than size of field
      double newVel = Double.parseDouble(velocity);
      if(newVel > 0) {
        return (newVel);
      }
      return -1;
    }
-  // validateLocation() - vel > 0
-  // toString()
+  // validateLocation() - vel > 0, location is initially on field, doesn't matter for later
   public static void main(String args[]) {
 
   }

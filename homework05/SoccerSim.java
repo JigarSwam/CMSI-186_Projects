@@ -18,5 +18,6 @@ public class SoccerSim {
   * whileCollisionOcurred
   * collisionNotPossible
   * hasCollided()
+  * instantiates field, timer, ball
 
 **/
