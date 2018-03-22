@@ -9,7 +9,14 @@ public class Timer {
       return totalSeconds;
     }
 
-    // when ball has stopped
+    public double validateTimeSliceArg(String argValue) throws NumberFormatException {
+      double newArgValue = Double.parseDouble(argValue);
+      if(newArgValue < 1800 && newArgValue > 0) {
+        return (newArgValue);
+      }
+      throw new IllegalArgumentException();
+    }
+
     // when to end program (when ball has stopped)
 
     public int calcHour() {
@@ -42,15 +49,9 @@ public class Timer {
       /** TESTS
       * tick()
       * toString()
-
       **/
+      // create new Timer timer
+      //System.out.println(timer.getTotalSeconds());
     }
 
 }
-
-/**
-  * Notes:
-  * Handles timing part of simulation (tick()) | Check
-  * Keeps track of totalSeconds                | Check
-  * Represent current time (toString())        | Check
-**/

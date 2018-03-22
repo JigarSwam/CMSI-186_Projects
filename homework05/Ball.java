@@ -7,22 +7,24 @@
  *  Exceptions    :  None
 **/
 public class Ball {
-  private final double RADIUS_IN_INCHES = 4.45;
-  private final double WEIGHT_IN_POUNDS = 1;
-  private final double FRICTION_PERCENT_PER_SECOND = .01;
-  private final double DEFAULT_X_LOCATION = 0;
-  private final double DEFAULT_Y_LOCATION = 0;
-  private final double DEFAULT_X_VELOCITY_FEET = 2;
-  private final double DEFAULT_Y_VELOCITY_FEET = 2;
+  private static final double RADIUS_IN_INCHES = 4.45;
+  private static final double WEIGHT_IN_POUNDS = 1;
+  private static final double FRICTION_PERCENT_PER_SECOND = .01;
+  private static final double DEFAULT_X_LOCATION = 0;
+  private static final double DEFAULT_Y_LOCATION = 0;
+  private static final double DEFAULT_X_VELOCITY_FEET = 2;
+  private static final double DEFAULT_Y_VELOCITY_FEET = 2;
   private static final double DEFAULT_TIME_SLICE_IN_SECONDS = 1.0;
   private static final double EPSILON_VALUE = 0.01;
 
-  private double ballX = 0;
-  private double ballY = 0;
-  private double ballXVelocity = 0;
-  private double ballYVelocity = 0;
+  public static double ballX = 0;
+  public static double ballY = 0;
+  public static double ballXVelocity = 0;
+  public static double ballYVelocity = 0;
 
   private static double timeSlice = 0;
+
+  // args length % 4 and not 0 or 1 error
 
   public Ball() {
     ballX = DEFAULT_X_LOCATION;
@@ -33,14 +35,6 @@ public class Ball {
     timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
   }
 
-  public Ball(double xLoc, double yLoc, double xVel, double yVel) {
-    ballX = xLoc;
-    ballY = yLoc;
-    ballXVelocity = xVel;
-    ballYVelocity = yVel;
-
-    timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
-  }
   public Ball(double xLoc, double yLoc, double xVel, double yVel, double timeSliceArg) {
     ballX = xLoc;
     ballY = yLoc;
@@ -50,15 +44,23 @@ public class Ball {
     timeSlice = timeSliceArg;
   }
 
-  public void move() {
+  public static void move() {
     ballX += ballXVelocity;
     ballY += ballYVelocity;
     ballXVelocity = ballXVelocity - ((ballXVelocity * FRICTION_PERCENT_PER_SECOND) * timeSlice);
     ballYVelocity = ballYVelocity - ((ballYVelocity * FRICTION_PERCENT_PER_SECOND) * timeSlice);
   }
 
+  public static void atRest() {
+     boolean ballStopped = false;
+    if(Ball.ballXVelocity < .083333 && Ball.ballYVelocity < 0.83333) {
+      ballStopped = true;
+      System.out.println("at rest");
+    }
+  }
+
   public String toString() {
-    return "";
+    return "Position: " + "<" + ballX + ">" + "<" + ballY + ">" + "Velocity: " + "<" + ballXVelocity + ">" + "<" + ballYVelocity +">";
   }
 
   public static void main(String args[]) {
@@ -66,19 +68,8 @@ public class Ball {
     /**
     *move()
     **/
+    // create new Ball object and move it, do multiple times
+    //try { System.out.println( (60 == clock.validateAngleArg("60") ) ? " 60 is valid angle arg" : " 60 is invalid angle arg" ); }
+    //catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
   }
-
 }
-
-
-/**
-  * Notes:
-
-  * Speed dec @1% / seconds
-  * 2ft/seconds
-  * c = sqrt(a^2 + b^2)
-  * ball needs to update itself
-  * validate arguments
-  * epsilon value
-  * V(f) = V(0) - ((V(0) * 0.01) * timeSlice);
-**/
