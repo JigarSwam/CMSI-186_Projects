@@ -16,6 +16,8 @@ public class Ball {
   private static final double DEFAULT_Y_VELOCITY_FEET = 2;
   private static final double DEFAULT_TIME_SLICE_IN_SECONDS = 1.0;
   private static final double EPSILON_VALUE = 0.01;
+  private static final double STOP_XVEL = 1/12;
+  private static final double STOP_YVEL = 1/12;
 
   public static double ballX = 0;
   public static double ballY = 0;
@@ -45,16 +47,17 @@ public class Ball {
   }
 
   public static void move() {
-    boolean ballStopped = false;
-    while(ballStopped == false) {
       ballX += ballXVelocity;
       ballY += ballYVelocity;
       ballXVelocity = ballXVelocity - ((ballXVelocity * FRICTION_PERCENT_PER_SECOND) * timeSlice);
       ballYVelocity = ballYVelocity - ((ballYVelocity * FRICTION_PERCENT_PER_SECOND) * timeSlice);
-      if(Ball.ballXVelocity < .083333 && Ball.ballYVelocity < 0.83333) {
-        ballStopped = true;
-      }
+  }
+
+  public static String atRest() {
+    if(ballXVelocity == STOP_XVEL && ballYVelocity == STOP_YVEL) {
+      return "at rest";
     }
+    return "";
   }
 
   public String toString() {
