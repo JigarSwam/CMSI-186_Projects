@@ -45,25 +45,42 @@ public class Ball {
   }
 
   public static void move() {
-    ballX += ballXVelocity;
-    ballY += ballYVelocity;
-    ballXVelocity = ballXVelocity - ((ballXVelocity * FRICTION_PERCENT_PER_SECOND) * timeSlice);
-    ballYVelocity = ballYVelocity - ((ballYVelocity * FRICTION_PERCENT_PER_SECOND) * timeSlice);
-  }
-
-  public static void atRest() {
-     boolean ballStopped = false;
-    if(Ball.ballXVelocity < .083333 && Ball.ballYVelocity < 0.83333) {
-      ballStopped = true;
-      System.out.println("at rest");
+    boolean ballStopped = false;
+    while(ballStopped == false) {
+      ballX += ballXVelocity;
+      ballY += ballYVelocity;
+      ballXVelocity = ballXVelocity - ((ballXVelocity * FRICTION_PERCENT_PER_SECOND) * timeSlice);
+      ballYVelocity = ballYVelocity - ((ballYVelocity * FRICTION_PERCENT_PER_SECOND) * timeSlice);
+      if(Ball.ballXVelocity < .083333 && Ball.ballYVelocity < 0.83333) {
+        ballStopped = true;
+      }
     }
   }
 
   public String toString() {
-    return "Position: " + "<" + ballX + ">" + "<" + ballY + ">" + "Velocity: " + "<" + ballXVelocity + ">" + "<" + ballYVelocity +">";
+    return "Position: " + "<" + ballX + ", " + ballY + ">" + " Velocity: " + "<" + ballXVelocity + ", " + ballYVelocity +">";
   }
 
   public static void main(String args[]) {
+    System.out.println( "\nBall CLASS TESTER PROGRAM\n" +
+                        "--------------------------\n" );
+    System.out.println( "  Creating a new ball: " );
+    Ball ball = new Ball();
+    System.out.println( "  New ball created: " + ball.toString());
+
+    ball.move();
+    System.out.println("Update: " + ball.toString());
+    try { System.out.println( (2.0 == ballX) ? " move() for X-val working as intended" : " move() not working" ); }
+    catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
+    try { System.out.println( (2.0 == ballY) ? " move() for Y-val working as intended" : " move() not working" ); }
+    catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
+
+    ball.move();
+    System.out.println("Update: " + ball.toString());
+    try { System.out.println( (3.98 == ballX) ? " move() for X-val working as intended" : " move() not working" ); }
+    catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
+    try { System.out.println( (3.98 == ballY) ? " move() for Y-val working as intended" : " move() not working" ); }
+    catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
     //tests:
     /**
     *move()

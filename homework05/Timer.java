@@ -17,8 +17,6 @@ public class Timer {
       throw new IllegalArgumentException();
     }
 
-    // when to end program (when ball has stopped)
-
     public int calcHour() {
       int hour = (int)(totalSeconds / 3600);
       return hour;
@@ -46,6 +44,8 @@ public class Timer {
     }
 
     public static void main(String[] args) {
+
+
       /** TESTS
       * tick()
       * toString()
