@@ -59,15 +59,12 @@ public class Timer {
     public static void main(String[] args) {
 
       Timer timer = new Timer();
-      System.out.println(timer.getTotalSeconds());
 
+      timeSlice = 20;
       double numSecs = 0;
       for(int i = 0; i < 10; i++) {
-        numSecs += 60;
-        System.out.println(timer);
+        System.out.println(timer.toTimeString());
         timer.tick();
-        try { System.out.println( (numSecs == timer.getTotalSeconds()) ? " - got correct seconds" : " - no joy" ); }
-        catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
       }
 
 
