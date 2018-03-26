@@ -1,5 +1,5 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- *  File name     :  SoccerSim.java
+ *  File name     :  Ball.java
  *  @author       :  Jigar Swaminarayan
  *  Date written  :  2017-03-13
  *  Description   :  Helper class for a Ball object for SoccerSim.java.
@@ -84,12 +84,5 @@ public class Ball {
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
     try { System.out.println( (3.98 == ballY) ? " move() for Y-val working as intended" : " move() not working" ); }
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
-    //tests:
-    /**
-    *move()
-    **/
-    // create new Ball object and move it, do multiple times
-    //try { System.out.println( (60 == clock.validateAngleArg("60") ) ? " 60 is valid angle arg" : " 60 is invalid angle arg" ); }
-    //catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
   }
 }

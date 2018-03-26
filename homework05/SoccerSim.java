@@ -27,7 +27,7 @@ public class SoccerSim {
   public final double POLE_X = 200;
   public final double POLE_Y = -50;
 
-  //numballs
+  public int numBalls = 0;
 
   public SoccerSim(String args[]) {
 
@@ -47,7 +47,13 @@ public class SoccerSim {
   //Ball[] balls = null;
  // validateLocation() - vel > 0, location is initially on field, doesn't matter for later
 
+ public static void collisionOccured() {
+
+ }
+
   public static void main(String[] args) {
+    Timer timer = new Timer();
+    System.out.println("Initial Report at : " + timer.toTimeString());
 
   }
 }
