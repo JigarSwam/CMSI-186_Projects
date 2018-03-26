@@ -7,7 +7,7 @@
  *  Exceptions    :  None
 **/
 public class Ball {
-  private static final double RADIUS_IN_INCHES = 4.45;
+  public static final double RADIUS_IN_INCHES = 4.45;
   private static final double WEIGHT_IN_POUNDS = 1;
   private static final double FRICTION_PERCENT_PER_SECOND = .01;
   private static final double DEFAULT_X_LOCATION = 0;
@@ -67,7 +67,7 @@ public class Ball {
   public static void main(String args[]) {
     System.out.println( "\nBall CLASS TESTER PROGRAM\n" +
                         "--------------------------\n" );
-    System.out.println( "  Creating a new ball: " );
+    System.out.println( "  Creating a new ball... " );
     Ball ball = new Ball();
     System.out.println( "  New ball created: " + ball.toString());
 

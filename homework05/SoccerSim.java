@@ -24,8 +24,8 @@ public class SoccerSim {
   private final double QUAD_4_WIDTH = 250;
   private final double QUAD_4_HEIGHT = -250;
 
-  public final double POLE_X = 200;
-  public final double POLE_Y = -50;
+  public final static double POLE_X = 200;
+  public final static double POLE_Y = -50;
 
   public int numBalls = 0;
 
@@ -47,13 +47,17 @@ public class SoccerSim {
   //Ball[] balls = null;
  // validateLocation() - vel > 0, location is initially on field, doesn't matter for later
 
- public static void collisionOccured() {
-
+ public static String collisionOccured() {
+   if((Ball.ballX <= POLE_X - (Ball.RADIUS_IN_INCHES / 12) || (Ball.ballX >= POLE_X - (Ball.RADIUS_IN_INCHES / 12))) &&
+      (Ball.ballY <= POLE_Y - (Ball.RADIUS_IN_INCHES / 12) || (Ball.ballY >= POLE_Y - (Ball.RADIUS_IN_INCHES / 12)))) {
+     return "Collission Occurred";
+   }
+   return "";
  }
 
   public static void main(String[] args) {
     Timer timer = new Timer();
-    System.out.println("Initial Report at : " + timer.toTimeString());
+    System.out.println("Initial Report at " + timer.toTimeString());
 
   }
 }

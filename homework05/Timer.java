@@ -17,12 +17,12 @@ public class Timer {
       super();
     }
 
-    public double tick() {
+    public static double tick() {
       totalSeconds += timeSlice;
       return totalSeconds;
     }
 
-    public double getTotalSeconds() {
+    public static double getTotalSeconds() {
        return totalSeconds;
     }
 
