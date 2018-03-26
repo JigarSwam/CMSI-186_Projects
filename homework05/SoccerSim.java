@@ -72,7 +72,6 @@ public class SoccerSim {
   }
 
   //ballStatus
- // validateLocation() - vel > 0, location is initially on field, doesn't matter for later
  public double validateLocation(String location) {
    double newLoc = Double.parseDouble(location);
    if(((newLoc < QUAD_1_WIDTH) && (newLoc < QUAD_1_HEIGHT)) && ((newLoc > QUAD_2_WIDTH) && (newLoc < QUAD_2_HEIGHT)) &&
@@ -102,5 +101,6 @@ public class SoccerSim {
   * collisionNotPossible
   * hasCollided()
   * instantiates field, timer, ball
+  * look at ClockSolver main to get idea on SoccerSim main!
 
 **/
