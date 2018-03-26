@@ -60,20 +60,13 @@ public class Timer {
 
       Timer timer = new Timer();
 
+      System.out.println("Testing with a timeSlice of 20 with 10 ticks.");
       timeSlice = 20;
       double numSecs = 0;
       for(int i = 0; i < 10; i++) {
         System.out.println(timer.toTimeString());
         timer.tick();
       }
-
-
-      /** TESTS
-      * tick()
-      * toString()
-      **/
-      // create new Timer timer
-      //System.out.println(timer.getTotalSeconds());
+      System.out.println(timer.getTotalSeconds());
     }
-
 }
