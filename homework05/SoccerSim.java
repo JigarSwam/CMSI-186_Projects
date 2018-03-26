@@ -50,7 +50,7 @@ public class SoccerSim {
  public static String collisionOccured() {
    if((Ball.ballX <= POLE_X - (Ball.RADIUS_IN_INCHES / 12) || (Ball.ballX >= POLE_X - (Ball.RADIUS_IN_INCHES / 12))) &&
       (Ball.ballY <= POLE_Y - (Ball.RADIUS_IN_INCHES / 12) || (Ball.ballY >= POLE_Y - (Ball.RADIUS_IN_INCHES / 12)))) {
-     return "Collission Occurred";
+     return "Collision Occurred";
    }
    return "";
  }
