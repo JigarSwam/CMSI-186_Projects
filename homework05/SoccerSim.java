@@ -27,10 +27,32 @@ public class SoccerSim {
   public final static double POLE_X = 200;
   public final static double POLE_Y = -50;
 
-  public int numBalls = 0;
+  public int numBalls;
+  private Ball[] ballArr;
+  public double DEFAULT_TIME_SLICE_IN_SECONDS = 1.0;
+  public double timeSlice;
 
   public SoccerSim(String args[]) {
-
+    numBalls = (int)(args.length / 4);
+    if(args.length % 4 == 1) {
+      timeSlice = Double.parseDouble(args[args.length-1]);
+    }
+    else if(args.length % 4 == 0) {
+      timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
+    }
+    else {
+      throw new IllegalArgumentException("Invalid Number of Arguments");
+    }
+    ballArr = new Ball[numBalls];
+    int j = 0;
+    for(int i=0; i < ballArr.length; i++) {
+      double xPos = Double.parseDouble(args[i+0]);
+      double yPos = Double.parseDouble(args[i+1]);
+      double xVel = Double.parseDouble(args[i+2]);
+      double yVel = Double.parseDouble(args[i+3]);
+      ballArr[j] = new Ball(xPos, yPos, xVel, yVel, timeSlice);
+      j++;
+    }
   }
 
   public double validateVelocity(String velocity) {
@@ -42,9 +64,14 @@ public class SoccerSim {
     throw new IllegalArgumentException();
   }
 
-  //ballStatus
+  public static String atRest() {
+    if(Ball.ballXVelocity == Ball.STOP_XVEL && Ball.ballYVelocity == Ball.STOP_YVEL) {
+      return "at rest";
+    }
+    return "";
+  }
 
-  //Ball[] balls = null;
+  //ballStatus
  // validateLocation() - vel > 0, location is initially on field, doesn't matter for later
 
  public static String collisionOccured() {
@@ -58,7 +85,6 @@ public class SoccerSim {
   public static void main(String[] args) {
     Timer timer = new Timer();
     System.out.println("Initial Report at " + timer.toTimeString());
-
   }
 }
 
