@@ -73,6 +73,14 @@ public class SoccerSim {
 
   //ballStatus
  // validateLocation() - vel > 0, location is initially on field, doesn't matter for later
+ public double validateLocation(String location) {
+   double newLoc = Double.parseDouble(location);
+   if(((newLoc < QUAD_1_WIDTH) && (newLoc < QUAD_1_HEIGHT)) && ((newLoc > QUAD_2_WIDTH) && (newLoc < QUAD_2_HEIGHT)) &&
+     ((newLoc > QUAD_3_WIDTH) && (newLoc > QUAD_3_HEIGHT)) && ((newLoc < QUAD_4_WIDTH) && (newLoc > QUAD_4_HEIGHT))) {
+     return (newLoc);
+   }
+   throw new IllegalArgumentException("Invalid Coordinates");
+ }
 
  public static String collisionOccured() {
    if((Ball.ballX <= POLE_X - (Ball.RADIUS_IN_INCHES / 12) || (Ball.ballX >= POLE_X - (Ball.RADIUS_IN_INCHES / 12))) &&
