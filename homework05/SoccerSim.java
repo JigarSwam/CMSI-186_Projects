@@ -28,7 +28,6 @@ public class SoccerSim {
 
   public SoccerSim(String args[]) {
     numBalls = (int)(args.length / 4);
-    System.out.println(numBalls);
     if(args.length % 4 == 1) {
       timeSlice = Double.parseDouble(args[args.length-1]);
     }
@@ -122,18 +121,20 @@ public class SoccerSim {
     SoccerSim ss = new SoccerSim(args);
     Timer timer = new Timer(ss.timeSlice);
 
+    System.out.println(timer);
+    System.out.println(ss);
     try {
       ss.validateLocation();
       ss.validateVelocity();
       ss.collisionOccurred();
 
       while(!ss.atRest()) {
-        System.out.println(timer.toString());
         for(Ball ball : ss.ballArr) {
           ball.move();
         }
-        System.out.println(ss);
         timer.tick();
+        System.out.println(timer);
+        System.out.println(ss);
       }
       // collision test
     }
