@@ -120,15 +120,13 @@ public class SoccerSim {
     SoccerSim ss = new SoccerSim(args);
     Timer timer = new Timer(ss.timeSlice);
 
+    System.out.println("INITIAL REPORT \n ----------");
     System.out.println(timer);
     System.out.println(ss);
     try {
       ss.validateLocation();
       ss.validateVelocity();
-      System.out.println("Starting Report at " + timer);
-      for(Ball ball : ss.ballArr) {
-        System.out.println(ball);
-      }
+
       while(!ss.atRest() && !ss.collisionOccurred()) {
         for(Ball ball : ss.ballArr) {
           ball.move();
@@ -136,6 +134,9 @@ public class SoccerSim {
         timer.tick();
         System.out.println(timer);
         System.out.println(ss);
+      }
+      if(!ss.collision) {
+        System.out.println("NO COLLISION POSSIBLE");
       }
     }
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
