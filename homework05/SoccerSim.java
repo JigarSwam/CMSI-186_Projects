@@ -31,6 +31,7 @@ public class SoccerSim {
   private Ball[] ballArr;
   public double DEFAULT_TIME_SLICE_IN_SECONDS = 1.0;
   public double timeSlice;
+  public boolean collision = false;
 
   public SoccerSim(String args[]) {
     numBalls = (int)(args.length / 4);
@@ -55,52 +56,82 @@ public class SoccerSim {
     }
   }
 
-  public double validateVelocity(String velocity) {
-    double newVel = Double.parseDouble(velocity);
-    if((newVel > 0) && ((newVel < QUAD_1_WIDTH) && (newVel < QUAD_1_HEIGHT)) && ((newVel > QUAD_2_WIDTH) && (newVel < QUAD_2_HEIGHT)) &&
+  public void validateVelocity() {
+  /**  if((newVel > 0) && ((newVel < QUAD_1_WIDTH) && (newVel < QUAD_1_HEIGHT)) && ((newVel > QUAD_2_WIDTH) && (newVel < QUAD_2_HEIGHT)) &&
       ((newVel > QUAD_3_WIDTH) && (newVel > QUAD_3_HEIGHT)) && ((newVel < QUAD_4_WIDTH) && (newVel > QUAD_4_HEIGHT))) {
       return (newVel);
     }
     throw new IllegalArgumentException();
-  }
+**/}
 
-  public static String atRest() {
-    if(Ball.ballXVelocity == Ball.STOP_XVEL && Ball.ballYVelocity == Ball.STOP_YVEL) {
-      return "at rest";
+  public boolean atRest() {
+    for (Ball ball : ballArr){
+      if (!ball.stationary()) {
+        return false;
+      }
     }
-    return "";
+    return true;
   }
 
-  //ballStatus
- public double validateLocation(String location) {
-   double newLoc = Double.parseDouble(location);
-   if(((newLoc < QUAD_1_WIDTH) && (newLoc < QUAD_1_HEIGHT)) && ((newLoc > QUAD_2_WIDTH) && (newLoc < QUAD_2_HEIGHT)) &&
-     ((newLoc > QUAD_3_WIDTH) && (newLoc > QUAD_3_HEIGHT)) && ((newLoc < QUAD_4_WIDTH) && (newLoc > QUAD_4_HEIGHT))) {
-     return (newLoc);
+ // public void validateLocation() {
+ //   double newLoc = Double.parseDouble(location);
+ //   if(((newLoc < QUAD_1_WIDTH) && (newLoc < QUAD_1_HEIGHT)) && ((newLoc > QUAD_2_WIDTH) && (newLoc < QUAD_2_HEIGHT)) &&
+ //     ((newLoc > QUAD_3_WIDTH) && (newLoc > QUAD_3_HEIGHT)) && ((newLoc < QUAD_4_WIDTH) && (newLoc > QUAD_4_HEIGHT))) {
+ //     return (newLoc);
+ //   }
+ //   throw new IllegalArgumentException("Invalid Coordinates");
+ // }
+
+ public boolean collisionOccured() {
+   int count = 1;
+   for(Ball ball : ballArr) {
+     if(Math.sqrt(Math.pow(POLE_X - ball.getXLoc(),2) + (Math.pow(POLE_Y - ball.getYLoc(), 2))) < ball.RADIUS_IN_INCHES) {
+       System.out.println("Ball" + count + " has collided with pole at <" + ball.getXLoc() + "," + ball.getYLoc() + ">");
+       collision = true;
+       return true;
+     }
+     for(Ball ball_2 : ballArr) {
+       if(Math.sqrt(Math.pow(ball_2.getXLoc() - ball.getXLoc(),2) + (Math.pow(ball_2.getYLoc() - ball.getYLoc(), 2)))
+       < Ball.RADIUS_IN_INCHES && ball != ball_2) {
+         System.out.println(ball_2 + " has collided with " + ball + " at <" + ball.getXLoc() + "," + ball.getYLoc() + ">");
+         collision = true;
+         return true;
+       }
+     }
+     count++;
    }
-   throw new IllegalArgumentException("Invalid Coordinates");
+   return false;
  }
 
- public static String collisionOccured() {
-   if((Ball.ballX <= POLE_X - (Ball.RADIUS_IN_INCHES / 12) || (Ball.ballX >= POLE_X - (Ball.RADIUS_IN_INCHES / 12))) &&
-      (Ball.ballY <= POLE_Y - (Ball.RADIUS_IN_INCHES / 12) || (Ball.ballY >= POLE_Y - (Ball.RADIUS_IN_INCHES / 12)))) {
-     return "Collision Occurred";
+   public String toString() {
+     String result = "";
+     for(Ball ball : ballArr) {
+       result += ball.toString();
+     }
+     return result;
    }
-   return "";
- }
+
 
   public static void main(String[] args) {
-    Timer timer = new Timer();
-    System.out.println("Initial Report at " + timer.toTimeString());
+    SoccerSim ss = new SoccerSim(args);
+    Timer timer = new Timer(ss.timeSlice);
+
+    try {
+      System.out.println("Initial Report at " + timer.toString());
+      System.out.println(ss);
+      while(!ss.atRest()) {
+        System.out.println(timer.toString());
+        for(Ball ball : ss.ballArr) {
+          ball.move();
+          System.out.println(ss.toString());
+        }
+        timer.tick();
+      }
+      // collision test
+    }
+    catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
   }
 }
 
 
-/**
-  * whileCollisionOcurred
-  * collisionNotPossible
-  * hasCollided()
-  * instantiates field, timer, ball
-  * look at ClockSolver main to get idea on SoccerSim main!
-
-**/
+// try has everything: (3) validation methods, Initial report, while loop that runs everything

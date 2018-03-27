@@ -14,10 +14,14 @@ public class Timer {
     private static double inchesInFeet = 12;
 
     public Timer() {
-      super();
+      timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
     }
 
-    public static double tick() {
+    public Timer(double timeSliceArg) {
+      timeSlice = timeSliceArg;
+    }
+
+    public double tick() {
       totalSeconds += timeSlice;
       return totalSeconds;
     }
@@ -49,7 +53,7 @@ public class Timer {
       return seconds;
     }
 
-    public static String toTimeString() {
+    public String toString() {
       String hour = Integer.toString(calcHour());
       String min = Integer.toString(calcMinute());
       String sec = Double.toString(calcSeconds());
@@ -64,7 +68,7 @@ public class Timer {
       timeSlice = 20;
       double numSecs = 0;
       for(int i = 0; i < 10; i++) {
-        System.out.println(timer.toTimeString());
+        System.out.println(timer.toString());
         timer.tick();
       }
       System.out.println(timer.getTotalSeconds());

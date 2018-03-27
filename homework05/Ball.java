@@ -6,6 +6,9 @@
  *  Warnings      :  None
  *  Exceptions    :  None
 **/
+
+import java.text.DecimalFormat;
+
 public class Ball {
   public static final double RADIUS_IN_INCHES = 4.45;
   private static final double WEIGHT_IN_POUNDS = 1;
@@ -19,14 +22,12 @@ public class Ball {
   public static final double STOP_XVEL = 1/12;
   public static final double STOP_YVEL = 1/12;
 
-  public static double ballX = 0;
-  public static double ballY = 0;
-  public static double ballXVelocity = 0;
-  public static double ballYVelocity = 0;
+  public double ballX = 0;
+  public double ballY = 0;
+  public double ballXVelocity = 0;
+  public double ballYVelocity = 0;
 
-  private static double timeSlice = 0;
-
-  // args length % 4 and not 0 or 1 error
+  private double timeSlice = 0;
 
   public Ball() {
     ballX = DEFAULT_X_LOCATION;
@@ -35,6 +36,26 @@ public class Ball {
     ballYVelocity = DEFAULT_Y_VELOCITY_FEET;
 
     timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
+  }
+
+  public double getXLoc() {
+    return ballX;
+  }
+
+  public double getYLoc() {
+    return ballY;
+  }
+
+  public double getXVel() {
+    return ballXVelocity;
+  }
+
+  public double getYVel() {
+    return ballYVelocity;
+  }
+
+  public boolean stationary() {
+    return Math.abs(ballXVelocity) <= .083 && Math.abs(ballYVelocity) <= .083;
   }
 
   public Ball(double xLoc, double yLoc, double xVel, double yVel, double timeSliceArg) {
@@ -46,15 +67,22 @@ public class Ball {
     timeSlice = timeSliceArg;
   }
 
-  public static void move() {
+  public void move() {
       ballX += ballXVelocity;
       ballY += ballYVelocity;
       ballXVelocity = ballXVelocity - ((ballXVelocity * FRICTION_PERCENT_PER_SECOND) * timeSlice);
       ballYVelocity = ballYVelocity - ((ballYVelocity * FRICTION_PERCENT_PER_SECOND) * timeSlice);
+      if ((Math.abs(ballXVelocity) * 12) <= 1.0) {
+        ballXVelocity = 0;
+      }
+      if ((Math.abs(ballYVelocity) * 12) <= 1.0) {
+        ballYVelocity = 0;
+      }
   }
 
   public String toString() {
-    return "Position: " + "<" + ballX + ", " + ballY + ">" + " Velocity: " + "<" + ballXVelocity + ", " + ballYVelocity +">";
+    DecimalFormat df = new DecimalFormat("#.##");
+    return "Position: " + "<" + df.format(ballX) + ", " + df.format(ballY) + ">" + " Velocity: " + "<" + df.format(ballXVelocity) + ", " + df.format(ballYVelocity) +">";
   }
 
   public static void main(String args[]) {
@@ -66,24 +94,24 @@ public class Ball {
 
     ball.move();
     System.out.println("Update: " + ball.toString());
-    try { System.out.println( (2.0 == ballX) ? " move() for X-val working as intended" : " move() not working" ); }
+    try { System.out.println( (2.0 == ball.ballX) ? " move() for X-val working as intended" : " move() not working" ); }
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
-    try { System.out.println( (2.0 == ballY) ? " move() for Y-val working as intended" : " move() not working" ); }
+    try { System.out.println( (2.0 == ball.ballY) ? " move() for Y-val working as intended" : " move() not working" ); }
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
-    try { System.out.println( (1.98 == ballXVelocity) ? " move() for X-Velocity working as intended" : " move() not working" ); }
+    try { System.out.println( (1.98 == ball.ballXVelocity) ? " move() for X-Velocity working as intended" : " move() not working" ); }
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
-    try { System.out.println( (1.98 == ballYVelocity) ? " move() for Y-Velocity working as intended" : " move() not working" ); }
+    try { System.out.println( (1.98 == ball.ballYVelocity) ? " move() for Y-Velocity working as intended" : " move() not working" ); }
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
 
     ball.move();
     System.out.println("Update: " + ball.toString());
-    try { System.out.println( (3.98 == ballX) ? " move() for X-val working as intended" : " move() not working" ); }
+    try { System.out.println( (3.98 == ball.ballX) ? " move() for X-val working as intended" : " move() not working" ); }
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
-    try { System.out.println( (3.98 == ballY) ? " move() for Y-val working as intended" : " move() not working" ); }
+    try { System.out.println( (3.98 == ball.ballY) ? " move() for Y-val working as intended" : " move() not working" ); }
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
-    try { System.out.println( (1.9602 == ballXVelocity) ? " move() for X-Velocity working as intended" : " move() not working" ); }
+    try { System.out.println( (1.9602 == ball.ballXVelocity) ? " move() for X-Velocity working as intended" : " move() not working" ); }
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
-    try { System.out.println( (1.9602 == ballYVelocity) ? " move() for Y-Velocity working as intended" : " move() not working" ); }
+    try { System.out.println( (1.9602 == ball.ballYVelocity) ? " move() for Y-Velocity working as intended" : " move() not working" ); }
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
 
     // test twice again with ball with different timeSlice value
