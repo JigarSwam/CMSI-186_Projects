@@ -53,10 +53,10 @@ public class SoccerSim {
   public void validateVelocity() {
     for(Ball ball : ballArr){
       if(ball.getXVel() > QUAD_1_4_WIDTH || ball.getXVel() < QUAD_2_3_WIDTH) {
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Invalid Velocity");
       }
       if(ball.getYVel() > QUAD_1_2_HEIGHT || ball.getYVel() < QUAD_3_4_HEIGHT) {
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Invalid Velocity");
       }
     }
   }
@@ -64,10 +64,10 @@ public class SoccerSim {
   public void validateLocation() {
     for(Ball ball : ballArr) {
       if(ball.getXLoc() > QUAD_1_4_WIDTH || ball.getXLoc() < QUAD_2_3_WIDTH) {
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Invalid Location");
       }
       if(ball.getYLoc() > QUAD_1_2_HEIGHT || ball.getYLoc() < QUAD_3_4_HEIGHT) {
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Invalid Location");
       }
     }
   }
@@ -81,16 +81,17 @@ public class SoccerSim {
     return true;
   }
 
- public boolean collisionOccured() {
+ public boolean collisionOccurred() {
    int count = 1;
+   System.out.println("fucker");
    for(Ball ball : ballArr) {
-     if(Math.sqrt(Math.pow(POLE_X - ball.getXLoc(),2) + (Math.pow(POLE_Y - ball.getYLoc(), 2))) < ball.RADIUS_IN_INCHES) {
+     if((Math.sqrt(Math.pow(POLE_X - ball.getXLoc(),2) + (Math.pow(POLE_Y - ball.getYLoc(), 2)))) < ball.RADIUS_IN_INCHES) {
        System.out.println("Ball" + count + " has collided with pole at <" + ball.getXLoc() + "," + ball.getYLoc() + ">");
        collision = true;
        return true;
      }
      for(Ball ball_2 : ballArr) {
-       if(Math.sqrt(Math.pow(ball_2.getXLoc() - ball.getXLoc(),2) + (Math.pow(ball_2.getYLoc() - ball.getYLoc(), 2)))
+       if((Math.sqrt(Math.pow(ball_2.getXLoc() - ball.getXLoc(),2) + (Math.pow(ball_2.getYLoc() - ball.getYLoc(), 2))))
        < Ball.RADIUS_IN_INCHES && ball != ball_2) {
          System.out.println(ball_2 + " has collided with " + ball + " at <" + ball.getXLoc() + "," + ball.getYLoc() + ">");
          collision = true;
@@ -105,8 +106,12 @@ public class SoccerSim {
    public String toString() {
      int count = 1;
      String result = "";
+     String atRest = "At Rest";
      for(Ball ball : ballArr) {
        result += "Ball " + count + ": " + ball.toString() + "\n";
+       if(atRest()) {
+         result += (atRest + "\n");
+       }
        count++;
      }
      return result;
@@ -120,7 +125,7 @@ public class SoccerSim {
     try {
       ss.validateLocation();
       ss.validateVelocity();
-      // ss.hasCollided();
+      ss.collisionOccurred();
 
       while(!ss.atRest()) {
         System.out.println(timer.toString());
