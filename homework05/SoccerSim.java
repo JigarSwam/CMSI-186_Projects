@@ -12,17 +12,10 @@ public class SoccerSim {
   private final double FIELD_X_WIDTH = 500;
   private final double FIELD_Y_HEIGHT = 500;
 
-  private final double QUAD_1_WIDTH = 250;
-  private final double QUAD_1_HEIGHT = 250;
-
-  private final double QUAD_2_WIDTH = -250;
-  private final double QUAD_2_HEIGHT = 250;
-
-  private final double QUAD_3_WIDTH = -250;
-  private final double QUAD_3_HEIGHT = -250;
-
-  private final double QUAD_4_WIDTH = 250;
-  private final double QUAD_4_HEIGHT = -250;
+  private final double QUAD_1_4_WIDTH = 250;
+  private final double QUAD_1_2_HEIGHT = 250;
+  private final double QUAD_2_3_WIDTH = -250;
+  private final double QUAD_3_4_HEIGHT = -250;
 
   public final static double POLE_X = 200;
   public final static double POLE_Y = -50;
@@ -35,6 +28,7 @@ public class SoccerSim {
 
   public SoccerSim(String args[]) {
     numBalls = (int)(args.length / 4);
+    System.out.println(numBalls);
     if(args.length % 4 == 1) {
       timeSlice = Double.parseDouble(args[args.length-1]);
     }
@@ -46,7 +40,7 @@ public class SoccerSim {
     }
     ballArr = new Ball[numBalls];
     int j = 0;
-    for(int i=0; i < ballArr.length; i++) {
+    for(int i=0; i < args.length-1; i+=4) {
       double xPos = Double.parseDouble(args[i+0]);
       double yPos = Double.parseDouble(args[i+1]);
       double xVel = Double.parseDouble(args[i+2]);
@@ -57,12 +51,26 @@ public class SoccerSim {
   }
 
   public void validateVelocity() {
-  /**  if((newVel > 0) && ((newVel < QUAD_1_WIDTH) && (newVel < QUAD_1_HEIGHT)) && ((newVel > QUAD_2_WIDTH) && (newVel < QUAD_2_HEIGHT)) &&
-      ((newVel > QUAD_3_WIDTH) && (newVel > QUAD_3_HEIGHT)) && ((newVel < QUAD_4_WIDTH) && (newVel > QUAD_4_HEIGHT))) {
-      return (newVel);
+    for(Ball ball : ballArr){
+      if(ball.getXVel() > QUAD_1_4_WIDTH || ball.getXVel() < QUAD_2_3_WIDTH) {
+        throw new IllegalArgumentException();
+      }
+      if(ball.getYVel() > QUAD_1_2_HEIGHT || ball.getYVel() < QUAD_3_4_HEIGHT) {
+        throw new IllegalArgumentException();
+      }
     }
-    throw new IllegalArgumentException();
-**/}
+  }
+
+  public void validateLocation() {
+    for(Ball ball : ballArr) {
+      if(ball.getXLoc() > QUAD_1_4_WIDTH || ball.getXLoc() < QUAD_2_3_WIDTH) {
+        throw new IllegalArgumentException();
+      }
+      if(ball.getYLoc() > QUAD_1_2_HEIGHT || ball.getYLoc() < QUAD_3_4_HEIGHT) {
+        throw new IllegalArgumentException();
+      }
+    }
+  }
 
   public boolean atRest() {
     for (Ball ball : ballArr){
@@ -72,15 +80,6 @@ public class SoccerSim {
     }
     return true;
   }
-
- // public void validateLocation() {
- //   double newLoc = Double.parseDouble(location);
- //   if(((newLoc < QUAD_1_WIDTH) && (newLoc < QUAD_1_HEIGHT)) && ((newLoc > QUAD_2_WIDTH) && (newLoc < QUAD_2_HEIGHT)) &&
- //     ((newLoc > QUAD_3_WIDTH) && (newLoc > QUAD_3_HEIGHT)) && ((newLoc < QUAD_4_WIDTH) && (newLoc > QUAD_4_HEIGHT))) {
- //     return (newLoc);
- //   }
- //   throw new IllegalArgumentException("Invalid Coordinates");
- // }
 
  public boolean collisionOccured() {
    int count = 1;
@@ -104,9 +103,11 @@ public class SoccerSim {
  }
 
    public String toString() {
+     int count = 1;
      String result = "";
      for(Ball ball : ballArr) {
-       result += ball.toString();
+       result += "Ball " + count + ": " + ball.toString() + "\n";
+       count++;
      }
      return result;
    }
@@ -117,14 +118,16 @@ public class SoccerSim {
     Timer timer = new Timer(ss.timeSlice);
 
     try {
-      System.out.println("Initial Report at " + timer.toString());
-      System.out.println(ss);
+      ss.validateLocation();
+      ss.validateVelocity();
+      // ss.hasCollided();
+
       while(!ss.atRest()) {
         System.out.println(timer.toString());
         for(Ball ball : ss.ballArr) {
           ball.move();
-          System.out.println(ss.toString());
         }
+        System.out.println(ss);
         timer.tick();
       }
       // collision test
