@@ -84,14 +84,14 @@ public class SoccerSim {
    int count = 1;
    for(Ball ball : ballArr) {
      if(Math.sqrt(Math.pow(POLE_X - ball.getXLoc(),2) + (Math.pow(POLE_Y - ball.getYLoc(), 2))) < ball.RADIUS_IN_INCHES) {
-       System.out.println("Ball" + count + " has collided with pole at <" + ball.getXLoc() + "," + ball.getYLoc() + ">");
+       System.out.println("Ball " + count + " has collided with pole at <" + ball.getXLoc() + "," + ball.getYLoc() + ">");
        collision = true;
        return true;
      }
      for(Ball ball_2 : ballArr) {
        if(Math.sqrt(Math.pow(ball_2.getXLoc() - ball.getXLoc(),2) + (Math.pow(ball_2.getYLoc() - ball.getYLoc(), 2)))
        < Ball.RADIUS_IN_INCHES && ball != ball_2) {
-         System.out.println("Ball" + count + " has collided with " + "Ball" + count + " at <" + ball.getXLoc() + "," + ball.getYLoc() + ">");
+         System.out.println("Collision at <" + ball.getXLoc() + "," + ball.getYLoc() + ">");
          collision = true;
          return true;
        }
@@ -125,20 +125,19 @@ public class SoccerSim {
     try {
       ss.validateLocation();
       ss.validateVelocity();
-
-      while(!ss.atRest()) {
+      System.out.println("Starting Report at " + timer);
+      for(Ball ball : ss.ballArr) {
+        System.out.println(ball);
+      }
+      while(!ss.atRest() && !ss.collisionOccurred()) {
         for(Ball ball : ss.ballArr) {
           ball.move();
         }
         timer.tick();
         System.out.println(timer);
         System.out.println(ss);
-        ss.collisionOccurred();
       }
     }
     catch( Exception e ) { System.out.println ( " - Exception thrown: " + e.toString() ); }
   }
 }
-
-
-// try has everything: (3) validation methods, Initial report, while loop that runs everything
