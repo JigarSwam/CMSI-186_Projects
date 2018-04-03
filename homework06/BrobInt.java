@@ -2,7 +2,7 @@
  * File name   :  BrobInt.java
  * Purpose     :  Learning exercise to implement arbitrarily large numbers and their operations
  * @author     :  B.J. Johnson
- * Modified By :
+ * Modified By :  Jigar Swaminarayan
  * Date        :  2017-03-27
  * Description :  @see <a href='http://bjohnson.lmu.build/cmsi186web/homework06.html'>Assignment Page</a>
  * Notes       :  None
@@ -55,7 +55,7 @@ public class BrobInt {
    *  note that there is no return false, because of throwing the exception
    *  note also that this must check for the '+' and '-' sign digits
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public boolean validateDigits() {
+   public boolean validateDigits() throws IllegalArgumentException {
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
