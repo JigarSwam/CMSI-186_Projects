@@ -1,0 +1,1111 @@
+.
+.
+======================================
+... Testing Ball class ...
+======================================
+
+Ball CLASS TESTER PROGRAM
+--------------------------
+
+  Creating a new ball...
+  New ball created: Position: <0, 0> Velocity: <2, 2>
+Update: Position: <2, 2> Velocity: <1.98, 1.98>
+ move() for X-val working as intended
+ move() for Y-val working as intended
+ move() for X-Velocity working as intended
+ move() for Y-Velocity working as intended
+Update: Position: <3.98, 3.98> Velocity: <1.96, 1.96>
+ move() for X-val working as intended
+ move() for Y-val working as intended
+ move() for X-Velocity working as intended
+ move() for Y-Velocity working as intended
+.
+.
+.
+.
+======================================
+... Testing Timer class ...
+======================================
+Testing with a timeSlice of 20 with 10 ticks.
+0:0:0.0
+0:0:20.0
+0:0:40.0
+0:1:0.0
+0:1:20.0
+0:1:40.0
+0:2:0.0
+0:2:20.0
+0:2:40.0
+0:3:0.0
+200.0
+.
+.
+======================================
+... Testing SoccerSim no args...
+======================================
+INITIAL REPORT
+ ----------
+0:0:0.0
+
+NO COLLISION POSSIBLE
+.
+.
+======================================
+... Testing SoccerSim one arg...
+======================================
+INITIAL REPORT
+ ----------
+0:0:0.0
+
+NO COLLISION POSSIBLE
+.
+.
+======================================
+... Testing SoccerSim two args...
+======================================
+.
+.
+======================================
+... Testing SoccerSim three args...
+======================================
+.
+.
+======================================
+... Testing SoccerSim six args...
+======================================
+.
+.
+======================================
+... Testing SoccerSim out of bounds...
+======================================
+INITIAL REPORT
+ ----------
+0:0:0.0
+Ball 1: Position: <510, 510> Velocity: <99, 99>
+
+ - Exception thrown: java.lang.IllegalArgumentException: Invalid Location
+.
+.
+======================================
+... Testing SoccerSim negative time slice...
+======================================
+INITIAL REPORT
+ ----------
+0:0:0.0
+Ball 1: Position: <10, 10> Velocity: <5, 5>
+
+0:0:-1.0
+Ball 1: Position: <15, 15> Velocity: <5.05, 5.05>
+
+0:0:-2.0
+Ball 1: Position: <20.05, 20.05> Velocity: <5.1, 5.1>
+
+0:0:-3.0
+Ball 1: Position: <25.15, 25.15> Velocity: <5.15, 5.15>
+
+0:0:-4.0
+Ball 1: Position: <30.3, 30.3> Velocity: <5.2, 5.2>
+
+produces infinite loop!
+
+.
+.
+======================================
+... Testing SoccerSim time slice too large...
+======================================
+INITIAL REPORT
+ ----------
+0:0:0.0
+Ball 1: Position: <10, 10> Velocity: <5, 5>
+
+0:30:0.09999999999990905
+Ball 1: Position: <15, 15> Velocity: <-85, -85>
+
+1:0:0.1999999999998181
+Ball 1: Position: <-70, -70> Velocity: <1445.17, 1445.17>
+
+1:30:0.2999999999992724
+Ball 1: Position: <1375.17, 1375.17> Velocity: <-24569.34, -24569.34>
+
+2:0:0.3999999999996362
+Ball 1: Position: <-23194.17, -23194.17> Velocity: <417703.27, 417703.27>
+
+2:30:0.5
+Ball 1: Position: <394509.1, 394509.1> Velocity: <-7101373.27, -7101373.27>
+
+3:0:0.6000000000003638
+Ball 1: Position: <-6706864.17, -6706864.17> Velocity: <120730446.97, 120730446.97>
+
+3:30:0.7000000000007276
+Ball 1: Position: <114023582.8, 114023582.8> Velocity: <-2052538329.01, -2052538329.01>
+
+4:0:0.8000000000010914
+Ball 1: Position: <-1938514746.21, -1938514746.21> Velocity: <34895204131.58, 34895204131.58>
+
+produces infinite loop!
+
+.
+.
+======================================
+... Testing SoccerSim time slice value of zero...
+======================================
+INITIAL REPORT
+ ----------
+0:0:0.0
+Ball 1: Position: <10, 10> Velocity: <5, 5>
+
+0:0:0.0
+Ball 1: Position: <15, 15> Velocity: <5, 5>
+
+0:0:0.0
+Ball 1: Position: <20, 20> Velocity: <5, 5>
+
+0:0:0.0
+Ball 1: Position: <25, 25> Velocity: <5, 5>
+
+0:0:0.0
+Ball 1: Position: <30, 30> Velocity: <5, 5>
+
+0:0:0.0
+Ball 1: Position: <35, 35> Velocity: <5, 5>
+
+0:0:0.0
+Ball 1: Position: <40, 40> Velocity: <5, 5>
+
+0:0:0.0
+Ball 1: Position: <45, 45> Velocity: <5, 5>
+
+0:0:0.0
+Ball 1: Position: <50, 50> Velocity: <5, 5>
+
+0:0:0.0
+Ball 1: Position: <55, 55> Velocity: <5, 5>
+
+produces infinite loop!
+
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim check for collision...
+======================================  
+INITIAL REPORT 
+ ----------
+0:0:0.0
+Ball 1: Position: <10, 10> Velocity: <1, 1>
+Ball 2: Position: <20, 20> Velocity: <-1, -1>
+
+0:0:1.0
+Ball 1: Position: <11, 11> Velocity: <0.99, 0.99>
+Ball 2: Position: <19, 19> Velocity: <-0.99, -0.99>
+
+0:0:2.0
+Ball 1: Position: <11.99, 11.99> Velocity: <0.98, 0.98>
+Ball 2: Position: <18.01, 18.01> Velocity: <-0.98, -0.98>
+
+0:0:3.0
+Ball 1: Position: <12.97, 12.97> Velocity: <0.97, 0.97>
+Ball 2: Position: <17.03, 17.03> Velocity: <-0.97, -0.97>
+
+0:0:4.0
+Ball 1: Position: <13.94, 13.94> Velocity: <0.96, 0.96>
+Ball 2: Position: <16.06, 16.06> Velocity: <-0.96, -0.96>
+
+Collision at <13.940399000000001,13.940399000000001>
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball should come to rest...
+======================================  
+INITIAL REPORT 
+ ----------
+0:0:0.0
+Ball 1: Position: <10, 10> Velocity: <1, 1>
+
+0:0:1.0
+Ball 1: Position: <11, 11> Velocity: <0.99, 0.99>
+
+0:0:2.0
+Ball 1: Position: <11.99, 11.99> Velocity: <0.98, 0.98>
+
+0:0:3.0
+Ball 1: Position: <12.97, 12.97> Velocity: <0.97, 0.97>
+
+0:0:4.0
+Ball 1: Position: <13.94, 13.94> Velocity: <0.96, 0.96>
+
+0:0:5.0
+Ball 1: Position: <14.9, 14.9> Velocity: <0.95, 0.95>
+
+0:0:6.0
+Ball 1: Position: <15.85, 15.85> Velocity: <0.94, 0.94>
+
+0:0:7.0
+Ball 1: Position: <16.79, 16.79> Velocity: <0.93, 0.93>
+
+0:0:8.0
+Ball 1: Position: <17.73, 17.73> Velocity: <0.92, 0.92>
+
+0:0:9.0
+Ball 1: Position: <18.65, 18.65> Velocity: <0.91, 0.91>
+
+0:0:10.0
+Ball 1: Position: <19.56, 19.56> Velocity: <0.9, 0.9>
+
+0:0:11.0
+Ball 1: Position: <20.47, 20.47> Velocity: <0.9, 0.9>
+
+0:0:12.0
+Ball 1: Position: <21.36, 21.36> Velocity: <0.89, 0.89>
+
+0:0:13.0
+Ball 1: Position: <22.25, 22.25> Velocity: <0.88, 0.88>
+
+0:0:14.0
+Ball 1: Position: <23.13, 23.13> Velocity: <0.87, 0.87>
+
+0:0:15.0
+Ball 1: Position: <23.99, 23.99> Velocity: <0.86, 0.86>
+
+0:0:16.0
+Ball 1: Position: <24.85, 24.85> Velocity: <0.85, 0.85>
+
+0:0:17.0
+Ball 1: Position: <25.71, 25.71> Velocity: <0.84, 0.84>
+
+0:0:18.0
+Ball 1: Position: <26.55, 26.55> Velocity: <0.83, 0.83>
+
+0:0:19.0
+Ball 1: Position: <27.38, 27.38> Velocity: <0.83, 0.83>
+
+0:0:20.0
+Ball 1: Position: <28.21, 28.21> Velocity: <0.82, 0.82>
+
+0:0:21.0
+Ball 1: Position: <29.03, 29.03> Velocity: <0.81, 0.81>
+
+0:0:22.0
+Ball 1: Position: <29.84, 29.84> Velocity: <0.8, 0.8>
+
+0:0:23.0
+Ball 1: Position: <30.64, 30.64> Velocity: <0.79, 0.79>
+
+0:0:24.0
+Ball 1: Position: <31.43, 31.43> Velocity: <0.79, 0.79>
+
+0:0:25.0
+Ball 1: Position: <32.22, 32.22> Velocity: <0.78, 0.78>
+
+0:0:26.0
+Ball 1: Position: <33, 33> Velocity: <0.77, 0.77>
+
+0:0:27.0
+Ball 1: Position: <33.77, 33.77> Velocity: <0.76, 0.76>
+
+0:0:28.0
+Ball 1: Position: <34.53, 34.53> Velocity: <0.75, 0.75>
+
+0:0:29.0
+Ball 1: Position: <35.28, 35.28> Velocity: <0.75, 0.75>
+
+0:0:30.0
+Ball 1: Position: <36.03, 36.03> Velocity: <0.74, 0.74>
+
+0:0:31.0
+Ball 1: Position: <36.77, 36.77> Velocity: <0.73, 0.73>
+
+0:0:32.0
+Ball 1: Position: <37.5, 37.5> Velocity: <0.72, 0.72>
+
+0:0:33.0
+Ball 1: Position: <38.23, 38.23> Velocity: <0.72, 0.72>
+
+0:0:34.0
+Ball 1: Position: <38.94, 38.94> Velocity: <0.71, 0.71>
+
+0:0:35.0
+Ball 1: Position: <39.66, 39.66> Velocity: <0.7, 0.7>
+
+0:0:36.0
+Ball 1: Position: <40.36, 40.36> Velocity: <0.7, 0.7>
+
+0:0:37.0
+Ball 1: Position: <41.06, 41.06> Velocity: <0.69, 0.69>
+
+0:0:38.0
+Ball 1: Position: <41.74, 41.74> Velocity: <0.68, 0.68>
+
+0:0:39.0
+Ball 1: Position: <42.43, 42.43> Velocity: <0.68, 0.68>
+
+0:0:40.0
+Ball 1: Position: <43.1, 43.1> Velocity: <0.67, 0.67>
+
+0:0:41.0
+Ball 1: Position: <43.77, 43.77> Velocity: <0.66, 0.66>
+
+0:0:42.0
+Ball 1: Position: <44.43, 44.43> Velocity: <0.66, 0.66>
+
+0:0:43.0
+Ball 1: Position: <45.09, 45.09> Velocity: <0.65, 0.65>
+
+0:0:44.0
+Ball 1: Position: <45.74, 45.74> Velocity: <0.64, 0.64>
+
+0:0:45.0
+Ball 1: Position: <46.38, 46.38> Velocity: <0.64, 0.64>
+
+0:0:46.0
+Ball 1: Position: <47.02, 47.02> Velocity: <0.63, 0.63>
+
+0:0:47.0
+Ball 1: Position: <47.65, 47.65> Velocity: <0.62, 0.62>
+
+0:0:48.0
+Ball 1: Position: <48.27, 48.27> Velocity: <0.62, 0.62>
+
+0:0:49.0
+Ball 1: Position: <48.89, 48.89> Velocity: <0.61, 0.61>
+
+0:0:50.0
+Ball 1: Position: <49.5, 49.5> Velocity: <0.61, 0.61>
+
+0:0:51.0
+Ball 1: Position: <50.1, 50.1> Velocity: <0.6, 0.6>
+
+0:0:52.0
+Ball 1: Position: <50.7, 50.7> Velocity: <0.59, 0.59>
+
+0:0:53.0
+Ball 1: Position: <51.3, 51.3> Velocity: <0.59, 0.59>
+
+0:0:54.0
+Ball 1: Position: <51.88, 51.88> Velocity: <0.58, 0.58>
+
+0:0:55.0
+Ball 1: Position: <52.46, 52.46> Velocity: <0.58, 0.58>
+
+0:0:56.0
+Ball 1: Position: <53.04, 53.04> Velocity: <0.57, 0.57>
+
+0:0:57.0
+Ball 1: Position: <53.61, 53.61> Velocity: <0.56, 0.56>
+
+0:0:58.0
+Ball 1: Position: <54.17, 54.17> Velocity: <0.56, 0.56>
+
+0:0:59.0
+Ball 1: Position: <54.73, 54.73> Velocity: <0.55, 0.55>
+
+0:1:0.0
+Ball 1: Position: <55.28, 55.28> Velocity: <0.55, 0.55>
+
+0:1:1.0
+Ball 1: Position: <55.83, 55.83> Velocity: <0.54, 0.54>
+
+0:1:2.0
+Ball 1: Position: <56.37, 56.37> Velocity: <0.54, 0.54>
+
+0:1:3.0
+Ball 1: Position: <56.91, 56.91> Velocity: <0.53, 0.53>
+
+0:1:4.0
+Ball 1: Position: <57.44, 57.44> Velocity: <0.53, 0.53>
+
+0:1:5.0
+Ball 1: Position: <57.97, 57.97> Velocity: <0.52, 0.52>
+
+0:1:6.0
+Ball 1: Position: <58.49, 58.49> Velocity: <0.52, 0.52>
+
+0:1:7.0
+Ball 1: Position: <59, 59> Velocity: <0.51, 0.51>
+
+0:1:8.0
+Ball 1: Position: <59.51, 59.51> Velocity: <0.5, 0.5>
+
+0:1:9.0
+Ball 1: Position: <60.02, 60.02> Velocity: <0.5, 0.5>
+
+0:1:10.0
+Ball 1: Position: <60.52, 60.52> Velocity: <0.49, 0.49>
+
+0:1:11.0
+Ball 1: Position: <61.01, 61.01> Velocity: <0.49, 0.49>
+
+0:1:12.0
+Ball 1: Position: <61.5, 61.5> Velocity: <0.48, 0.48>
+
+0:1:13.0
+Ball 1: Position: <61.99, 61.99> Velocity: <0.48, 0.48>
+
+0:1:14.0
+Ball 1: Position: <62.47, 62.47> Velocity: <0.48, 0.48>
+
+0:1:15.0
+Ball 1: Position: <62.94, 62.94> Velocity: <0.47, 0.47>
+
+0:1:16.0
+Ball 1: Position: <63.41, 63.41> Velocity: <0.47, 0.47>
+
+0:1:17.0
+Ball 1: Position: <63.88, 63.88> Velocity: <0.46, 0.46>
+
+0:1:18.0
+Ball 1: Position: <64.34, 64.34> Velocity: <0.46, 0.46>
+
+0:1:19.0
+Ball 1: Position: <64.8, 64.8> Velocity: <0.45, 0.45>
+
+0:1:20.0
+Ball 1: Position: <65.25, 65.25> Velocity: <0.45, 0.45>
+
+0:1:21.0
+Ball 1: Position: <65.7, 65.7> Velocity: <0.44, 0.44>
+
+0:1:22.0
+Ball 1: Position: <66.14, 66.14> Velocity: <0.44, 0.44>
+
+0:1:23.0
+Ball 1: Position: <66.58, 66.58> Velocity: <0.43, 0.43>
+
+0:1:24.0
+Ball 1: Position: <67.01, 67.01> Velocity: <0.43, 0.43>
+
+0:1:25.0
+Ball 1: Position: <67.44, 67.44> Velocity: <0.43, 0.43>
+
+0:1:26.0
+Ball 1: Position: <67.87, 67.87> Velocity: <0.42, 0.42>
+
+0:1:27.0
+Ball 1: Position: <68.29, 68.29> Velocity: <0.42, 0.42>
+
+0:1:28.0
+Ball 1: Position: <68.71, 68.71> Velocity: <0.41, 0.41>
+
+0:1:29.0
+Ball 1: Position: <69.12, 69.12> Velocity: <0.41, 0.41>
+
+0:1:30.0
+Ball 1: Position: <69.53, 69.53> Velocity: <0.4, 0.4>
+
+0:1:31.0
+Ball 1: Position: <69.93, 69.93> Velocity: <0.4, 0.4>
+
+0:1:32.0
+Ball 1: Position: <70.33, 70.33> Velocity: <0.4, 0.4>
+
+0:1:33.0
+Ball 1: Position: <70.73, 70.73> Velocity: <0.39, 0.39>
+
+0:1:34.0
+Ball 1: Position: <71.12, 71.12> Velocity: <0.39, 0.39>
+
+0:1:35.0
+Ball 1: Position: <71.51, 71.51> Velocity: <0.38, 0.38>
+
+0:1:36.0
+Ball 1: Position: <71.9, 71.9> Velocity: <0.38, 0.38>
+
+0:1:37.0
+Ball 1: Position: <72.28, 72.28> Velocity: <0.38, 0.38>
+
+0:1:38.0
+Ball 1: Position: <72.65, 72.65> Velocity: <0.37, 0.37>
+
+0:1:39.0
+Ball 1: Position: <73.03, 73.03> Velocity: <0.37, 0.37>
+
+0:1:40.0
+Ball 1: Position: <73.4, 73.4> Velocity: <0.37, 0.37>
+
+0:1:41.0
+Ball 1: Position: <73.76, 73.76> Velocity: <0.36, 0.36>
+
+0:1:42.0
+Ball 1: Position: <74.13, 74.13> Velocity: <0.36, 0.36>
+
+0:1:43.0
+Ball 1: Position: <74.48, 74.48> Velocity: <0.36, 0.36>
+
+0:1:44.0
+Ball 1: Position: <74.84, 74.84> Velocity: <0.35, 0.35>
+
+0:1:45.0
+Ball 1: Position: <75.19, 75.19> Velocity: <0.35, 0.35>
+
+0:1:46.0
+Ball 1: Position: <75.54, 75.54> Velocity: <0.34, 0.34>
+
+0:1:47.0
+Ball 1: Position: <75.88, 75.88> Velocity: <0.34, 0.34>
+
+0:1:48.0
+Ball 1: Position: <76.22, 76.22> Velocity: <0.34, 0.34>
+
+0:1:49.0
+Ball 1: Position: <76.56, 76.56> Velocity: <0.33, 0.33>
+
+0:1:50.0
+Ball 1: Position: <76.9, 76.9> Velocity: <0.33, 0.33>
+
+0:1:51.0
+Ball 1: Position: <77.23, 77.23> Velocity: <0.33, 0.33>
+
+0:1:52.0
+Ball 1: Position: <77.56, 77.56> Velocity: <0.32, 0.32>
+
+0:1:53.0
+Ball 1: Position: <77.88, 77.88> Velocity: <0.32, 0.32>
+
+0:1:54.0
+Ball 1: Position: <78.2, 78.2> Velocity: <0.32, 0.32>
+
+0:1:55.0
+Ball 1: Position: <78.52, 78.52> Velocity: <0.31, 0.31>
+
+0:1:56.0
+Ball 1: Position: <78.83, 78.83> Velocity: <0.31, 0.31>
+
+0:1:57.0
+Ball 1: Position: <79.15, 79.15> Velocity: <0.31, 0.31>
+
+0:1:58.0
+Ball 1: Position: <79.45, 79.45> Velocity: <0.31, 0.31>
+
+0:1:59.0
+Ball 1: Position: <79.76, 79.76> Velocity: <0.3, 0.3>
+
+0:2:0.0
+Ball 1: Position: <80.06, 80.06> Velocity: <0.3, 0.3>
+
+0:2:1.0
+Ball 1: Position: <80.36, 80.36> Velocity: <0.3, 0.3>
+
+0:2:2.0
+Ball 1: Position: <80.66, 80.66> Velocity: <0.29, 0.29>
+
+0:2:3.0
+Ball 1: Position: <80.95, 80.95> Velocity: <0.29, 0.29>
+
+0:2:4.0
+Ball 1: Position: <81.24, 81.24> Velocity: <0.29, 0.29>
+
+0:2:5.0
+Ball 1: Position: <81.53, 81.53> Velocity: <0.28, 0.28>
+
+0:2:6.0
+Ball 1: Position: <81.81, 81.81> Velocity: <0.28, 0.28>
+
+0:2:7.0
+Ball 1: Position: <82.1, 82.1> Velocity: <0.28, 0.28>
+
+0:2:8.0
+Ball 1: Position: <82.37, 82.37> Velocity: <0.28, 0.28>
+
+0:2:9.0
+Ball 1: Position: <82.65, 82.65> Velocity: <0.27, 0.27>
+
+0:2:10.0
+Ball 1: Position: <82.92, 82.92> Velocity: <0.27, 0.27>
+
+0:2:11.0
+Ball 1: Position: <83.2, 83.2> Velocity: <0.27, 0.27>
+
+0:2:12.0
+Ball 1: Position: <83.46, 83.46> Velocity: <0.27, 0.27>
+
+0:2:13.0
+Ball 1: Position: <83.73, 83.73> Velocity: <0.26, 0.26>
+
+0:2:14.0
+Ball 1: Position: <83.99, 83.99> Velocity: <0.26, 0.26>
+
+0:2:15.0
+Ball 1: Position: <84.25, 84.25> Velocity: <0.26, 0.26>
+
+0:2:16.0
+Ball 1: Position: <84.51, 84.51> Velocity: <0.25, 0.25>
+
+0:2:17.0
+Ball 1: Position: <84.76, 84.76> Velocity: <0.25, 0.25>
+
+0:2:18.0
+Ball 1: Position: <85.02, 85.02> Velocity: <0.25, 0.25>
+
+0:2:19.0
+Ball 1: Position: <85.27, 85.27> Velocity: <0.25, 0.25>
+
+0:2:20.0
+Ball 1: Position: <85.51, 85.51> Velocity: <0.24, 0.24>
+
+0:2:21.0
+Ball 1: Position: <85.76, 85.76> Velocity: <0.24, 0.24>
+
+0:2:22.0
+Ball 1: Position: <86, 86> Velocity: <0.24, 0.24>
+
+0:2:23.0
+Ball 1: Position: <86.24, 86.24> Velocity: <0.24, 0.24>
+
+0:2:24.0
+Ball 1: Position: <86.48, 86.48> Velocity: <0.24, 0.24>
+
+0:2:25.0
+Ball 1: Position: <86.71, 86.71> Velocity: <0.23, 0.23>
+
+0:2:26.0
+Ball 1: Position: <86.95, 86.95> Velocity: <0.23, 0.23>
+
+0:2:27.0
+Ball 1: Position: <87.18, 87.18> Velocity: <0.23, 0.23>
+
+0:2:28.0
+Ball 1: Position: <87.41, 87.41> Velocity: <0.23, 0.23>
+
+0:2:29.0
+Ball 1: Position: <87.63, 87.63> Velocity: <0.22, 0.22>
+
+0:2:30.0
+Ball 1: Position: <87.85, 87.85> Velocity: <0.22, 0.22>
+
+0:2:31.0
+Ball 1: Position: <88.08, 88.08> Velocity: <0.22, 0.22>
+
+0:2:32.0
+Ball 1: Position: <88.3, 88.3> Velocity: <0.22, 0.22>
+
+0:2:33.0
+Ball 1: Position: <88.51, 88.51> Velocity: <0.21, 0.21>
+
+0:2:34.0
+Ball 1: Position: <88.73, 88.73> Velocity: <0.21, 0.21>
+
+0:2:35.0
+Ball 1: Position: <88.94, 88.94> Velocity: <0.21, 0.21>
+
+0:2:36.0
+Ball 1: Position: <89.15, 89.15> Velocity: <0.21, 0.21>
+
+0:2:37.0
+Ball 1: Position: <89.36, 89.36> Velocity: <0.21, 0.21>
+
+0:2:38.0
+Ball 1: Position: <89.57, 89.57> Velocity: <0.2, 0.2>
+
+0:2:39.0
+Ball 1: Position: <89.77, 89.77> Velocity: <0.2, 0.2>
+
+0:2:40.0
+Ball 1: Position: <89.97, 89.97> Velocity: <0.2, 0.2>
+
+0:2:41.0
+Ball 1: Position: <90.17, 90.17> Velocity: <0.2, 0.2>
+
+0:2:42.0
+Ball 1: Position: <90.37, 90.37> Velocity: <0.2, 0.2>
+
+0:2:43.0
+Ball 1: Position: <90.57, 90.57> Velocity: <0.19, 0.19>
+
+0:2:44.0
+Ball 1: Position: <90.76, 90.76> Velocity: <0.19, 0.19>
+
+0:2:45.0
+Ball 1: Position: <90.95, 90.95> Velocity: <0.19, 0.19>
+
+0:2:46.0
+Ball 1: Position: <91.14, 91.14> Velocity: <0.19, 0.19>
+
+0:2:47.0
+Ball 1: Position: <91.33, 91.33> Velocity: <0.19, 0.19>
+
+0:2:48.0
+Ball 1: Position: <91.52, 91.52> Velocity: <0.18, 0.18>
+
+0:2:49.0
+Ball 1: Position: <91.7, 91.7> Velocity: <0.18, 0.18>
+
+0:2:50.0
+Ball 1: Position: <91.89, 91.89> Velocity: <0.18, 0.18>
+
+0:2:51.0
+Ball 1: Position: <92.07, 92.07> Velocity: <0.18, 0.18>
+
+0:2:52.0
+Ball 1: Position: <92.25, 92.25> Velocity: <0.18, 0.18>
+
+0:2:53.0
+Ball 1: Position: <92.43, 92.43> Velocity: <0.18, 0.18>
+
+0:2:54.0
+Ball 1: Position: <92.6, 92.6> Velocity: <0.17, 0.17>
+
+0:2:55.0
+Ball 1: Position: <92.78, 92.78> Velocity: <0.17, 0.17>
+
+0:2:56.0
+Ball 1: Position: <92.95, 92.95> Velocity: <0.17, 0.17>
+
+0:2:57.0
+Ball 1: Position: <93.12, 93.12> Velocity: <0.17, 0.17>
+
+0:2:58.0
+Ball 1: Position: <93.29, 93.29> Velocity: <0.17, 0.17>
+
+0:2:59.0
+Ball 1: Position: <93.45, 93.45> Velocity: <0.17, 0.17>
+
+0:3:0.0
+Ball 1: Position: <93.62, 93.62> Velocity: <0.16, 0.16>
+
+0:3:1.0
+Ball 1: Position: <93.78, 93.78> Velocity: <0.16, 0.16>
+
+0:3:2.0
+Ball 1: Position: <93.95, 93.95> Velocity: <0.16, 0.16>
+
+0:3:3.0
+Ball 1: Position: <94.11, 94.11> Velocity: <0.16, 0.16>
+
+0:3:4.0
+Ball 1: Position: <94.26, 94.26> Velocity: <0.16, 0.16>
+
+0:3:5.0
+Ball 1: Position: <94.42, 94.42> Velocity: <0.16, 0.16>
+
+0:3:6.0
+Ball 1: Position: <94.58, 94.58> Velocity: <0.15, 0.15>
+
+0:3:7.0
+Ball 1: Position: <94.73, 94.73> Velocity: <0.15, 0.15>
+
+0:3:8.0
+Ball 1: Position: <94.88, 94.88> Velocity: <0.15, 0.15>
+
+0:3:9.0
+Ball 1: Position: <95.04, 95.04> Velocity: <0.15, 0.15>
+
+0:3:10.0
+Ball 1: Position: <95.19, 95.19> Velocity: <0.15, 0.15>
+
+0:3:11.0
+Ball 1: Position: <95.33, 95.33> Velocity: <0.15, 0.15>
+
+0:3:12.0
+Ball 1: Position: <95.48, 95.48> Velocity: <0.15, 0.15>
+
+0:3:13.0
+Ball 1: Position: <95.63, 95.63> Velocity: <0.14, 0.14>
+
+0:3:14.0
+Ball 1: Position: <95.77, 95.77> Velocity: <0.14, 0.14>
+
+0:3:15.0
+Ball 1: Position: <95.91, 95.91> Velocity: <0.14, 0.14>
+
+0:3:16.0
+Ball 1: Position: <96.05, 96.05> Velocity: <0.14, 0.14>
+
+0:3:17.0
+Ball 1: Position: <96.19, 96.19> Velocity: <0.14, 0.14>
+
+0:3:18.0
+Ball 1: Position: <96.33, 96.33> Velocity: <0.14, 0.14>
+
+0:3:19.0
+Ball 1: Position: <96.47, 96.47> Velocity: <0.14, 0.14>
+
+0:3:20.0
+Ball 1: Position: <96.6, 96.6> Velocity: <0.13, 0.13>
+
+0:3:21.0
+Ball 1: Position: <96.74, 96.74> Velocity: <0.13, 0.13>
+
+0:3:22.0
+Ball 1: Position: <96.87, 96.87> Velocity: <0.13, 0.13>
+
+0:3:23.0
+Ball 1: Position: <97, 97> Velocity: <0.13, 0.13>
+
+0:3:24.0
+Ball 1: Position: <97.13, 97.13> Velocity: <0.13, 0.13>
+
+0:3:25.0
+Ball 1: Position: <97.26, 97.26> Velocity: <0.13, 0.13>
+
+0:3:26.0
+Ball 1: Position: <97.39, 97.39> Velocity: <0.13, 0.13>
+
+0:3:27.0
+Ball 1: Position: <97.51, 97.51> Velocity: <0.12, 0.12>
+
+0:3:28.0
+Ball 1: Position: <97.64, 97.64> Velocity: <0.12, 0.12>
+
+0:3:29.0
+Ball 1: Position: <97.76, 97.76> Velocity: <0.12, 0.12>
+
+0:3:30.0
+Ball 1: Position: <97.88, 97.88> Velocity: <0.12, 0.12>
+
+0:3:31.0
+Ball 1: Position: <98, 98> Velocity: <0.12, 0.12>
+
+0:3:32.0
+Ball 1: Position: <98.12, 98.12> Velocity: <0.12, 0.12>
+
+0:3:33.0
+Ball 1: Position: <98.24, 98.24> Velocity: <0.12, 0.12>
+
+0:3:34.0
+Ball 1: Position: <98.36, 98.36> Velocity: <0.12, 0.12>
+
+0:3:35.0
+Ball 1: Position: <98.48, 98.48> Velocity: <0.12, 0.12>
+
+0:3:36.0
+Ball 1: Position: <98.59, 98.59> Velocity: <0.11, 0.11>
+
+0:3:37.0
+Ball 1: Position: <98.71, 98.71> Velocity: <0.11, 0.11>
+
+0:3:38.0
+Ball 1: Position: <98.82, 98.82> Velocity: <0.11, 0.11>
+
+0:3:39.0
+Ball 1: Position: <98.93, 98.93> Velocity: <0.11, 0.11>
+
+0:3:40.0
+Ball 1: Position: <99.04, 99.04> Velocity: <0.11, 0.11>
+
+0:3:41.0
+Ball 1: Position: <99.15, 99.15> Velocity: <0.11, 0.11>
+
+0:3:42.0
+Ball 1: Position: <99.26, 99.26> Velocity: <0.11, 0.11>
+
+0:3:43.0
+Ball 1: Position: <99.37, 99.37> Velocity: <0.11, 0.11>
+
+0:3:44.0
+Ball 1: Position: <99.47, 99.47> Velocity: <0.11, 0.11>
+
+0:3:45.0
+Ball 1: Position: <99.58, 99.58> Velocity: <0.1, 0.1>
+
+0:3:46.0
+Ball 1: Position: <99.68, 99.68> Velocity: <0.1, 0.1>
+
+0:3:47.0
+Ball 1: Position: <99.79, 99.79> Velocity: <0.1, 0.1>
+
+0:3:48.0
+Ball 1: Position: <99.89, 99.89> Velocity: <0.1, 0.1>
+
+0:3:49.0
+Ball 1: Position: <99.99, 99.99> Velocity: <0.1, 0.1>
+
+0:3:50.0
+Ball 1: Position: <100.09, 100.09> Velocity: <0.1, 0.1>
+
+0:3:51.0
+Ball 1: Position: <100.19, 100.19> Velocity: <0.1, 0.1>
+
+0:3:52.0
+Ball 1: Position: <100.29, 100.29> Velocity: <0.1, 0.1>
+
+0:3:53.0
+Ball 1: Position: <100.38, 100.38> Velocity: <0.1, 0.1>
+
+0:3:54.0
+Ball 1: Position: <100.48, 100.48> Velocity: <0.1, 0.1>
+
+0:3:55.0
+Ball 1: Position: <100.58, 100.58> Velocity: <0.09, 0.09>
+
+0:3:56.0
+Ball 1: Position: <100.67, 100.67> Velocity: <0.09, 0.09>
+
+0:3:57.0
+Ball 1: Position: <100.76, 100.76> Velocity: <0.09, 0.09>
+
+0:3:58.0
+Ball 1: Position: <100.86, 100.86> Velocity: <0.09, 0.09>
+
+0:3:59.0
+Ball 1: Position: <100.95, 100.95> Velocity: <0.09, 0.09>
+
+0:4:0.0
+Ball 1: Position: <101.04, 101.04> Velocity: <0.09, 0.09>
+
+0:4:1.0
+Ball 1: Position: <101.13, 101.13> Velocity: <0.09, 0.09>
+
+0:4:2.0
+Ball 1: Position: <101.22, 101.22> Velocity: <0.09, 0.09>
+
+0:4:3.0
+Ball 1: Position: <101.3, 101.3> Velocity: <0.09, 0.09>
+
+0:4:4.0
+Ball 1: Position: <101.39, 101.39> Velocity: <0.09, 0.09>
+
+0:4:5.0
+Ball 1: Position: <101.48, 101.48> Velocity: <0.09, 0.09>
+
+0:4:6.0
+Ball 1: Position: <101.56, 101.56> Velocity: <0.08, 0.08>
+
+0:4:7.0
+Ball 1: Position: <101.65, 101.65> Velocity: <0.08, 0.08>
+
+0:4:8.0
+Ball 1: Position: <101.73, 101.73> Velocity: <0, 0>
+At Rest
+
+NO COLLISION POSSIBLE
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball should go out of bounds...
+======================================  
+INITIAL REPORT 
+ ----------
+0:0:0.0
+Ball 1: Position: <10, 10> Velocity: <1000, 1000>
+
+ - Exception thrown: java.lang.IllegalArgumentException: Invalid Velocity
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball set six balls subsecond time slice...
+======================================  
+INITIAL REPORT 
+ ----------
+0:0:0.0
+Ball 1: Position: <200, 200> Velocity: <10, 10>
+Ball 2: Position: <100, 100> Velocity: <-100, -100>
+Ball 3: Position: <150, 150> Velocity: <200, 200>
+Ball 4: Position: <175, 175> Velocity: <-110, -110>
+Ball 5: Position: <20, 20> Velocity: <1, 1>
+Ball 6: Position: <50, 50> Velocity: <-5, -5>
+
+0:0:0.1
+Ball 1: Position: <210, 210> Velocity: <9.99, 9.99>
+Ball 2: Position: <0, 0> Velocity: <-99.9, -99.9>
+Ball 3: Position: <350, 350> Velocity: <199.8, 199.8>
+Ball 4: Position: <65, 65> Velocity: <-109.89, -109.89>
+Ball 5: Position: <21, 21> Velocity: <1, 1>
+Ball 6: Position: <45, 45> Velocity: <-5, -5>
+
+0:0:0.2
+Ball 1: Position: <219.99, 219.99> Velocity: <9.98, 9.98>
+Ball 2: Position: <-99.9, -99.9> Velocity: <-99.8, -99.8>
+Ball 3: Position: <549.8, 549.8> Velocity: <199.6, 199.6>
+Ball 4: Position: <-44.89, -44.89> Velocity: <-109.78, -109.78>
+Ball 5: Position: <22, 22> Velocity: <1, 1>
+Ball 6: Position: <40.01, 40.01> Velocity: <-4.99, -4.99>
+
+0:0:0.30000000000000004
+Ball 1: Position: <229.97, 229.97> Velocity: <9.97, 9.97>
+Ball 2: Position: <-199.7, -199.7> Velocity: <-99.7, -99.7>
+Ball 3: Position: <749.4, 749.4> Velocity: <199.4, 199.4>
+Ball 4: Position: <-154.67, -154.67> Velocity: <-109.67, -109.67>
+Ball 5: Position: <23, 23> Velocity: <1, 1>
+Ball 6: Position: <35.01, 35.01> Velocity: <-4.99, -4.99>
+
+0:0:0.4
+Ball 1: Position: <239.94, 239.94> Velocity: <9.96, 9.96>
+Ball 2: Position: <-299.4, -299.4> Velocity: <-99.6, -99.6>
+Ball 3: Position: <948.8, 948.8> Velocity: <199.2, 199.2>
+Ball 4: Position: <-264.34, -264.34> Velocity: <-109.56, -109.56>
+Ball 5: Position: <23.99, 23.99> Velocity: <1, 1>
+Ball 6: Position: <30.03, 30.03> Velocity: <-4.98, -4.98>
+
+0:0:0.5
+Ball 1: Position: <249.9, 249.9> Velocity: <9.95, 9.95>
+Ball 2: Position: <-399, -399> Velocity: <-99.5, -99.5>
+Ball 3: Position: <1148, 1148> Velocity: <199, 199>
+Ball 4: Position: <-373.9, -373.9> Velocity: <-109.45, -109.45>
+Ball 5: Position: <24.99, 24.99> Velocity: <1, 1>
+Ball 6: Position: <25.05, 25.05> Velocity: <-4.98, -4.98>
+
+Collision at <24.990009995000996,24.990009995000996>
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball set five balls 1.234 second time slice...
+======================================  
+INITIAL REPORT 
+ ----------
+0:0:0.0
+Ball 1: Position: <200, 200> Velocity: <10, 10>
+Ball 2: Position: <100, 100> Velocity: <-100, -100>
+Ball 3: Position: <175, 175> Velocity: <-110, -110>
+Ball 4: Position: <20, 20> Velocity: <1, 1>
+Ball 5: Position: <50, 50> Velocity: <-5, -5>
+
+0:0:1.234
+Ball 1: Position: <210, 210> Velocity: <9.88, 9.88>
+Ball 2: Position: <0, 0> Velocity: <-98.77, -98.77>
+Ball 3: Position: <65, 65> Velocity: <-108.64, -108.64>
+Ball 4: Position: <21, 21> Velocity: <0.99, 0.99>
+Ball 5: Position: <45, 45> Velocity: <-4.94, -4.94>
+
+0:0:2.468
+Ball 1: Position: <219.88, 219.88> Velocity: <9.75, 9.75>
+Ball 2: Position: <-98.77, -98.77> Velocity: <-97.55, -97.55>
+Ball 3: Position: <-43.64, -43.64> Velocity: <-107.3, -107.3>
+Ball 4: Position: <21.99, 21.99> Velocity: <0.98, 0.98>
+Ball 5: Position: <40.06, 40.06> Velocity: <-4.88, -4.88>
+
+0:0:3.702
+Ball 1: Position: <229.63, 229.63> Velocity: <9.63, 9.63>
+Ball 2: Position: <-196.31, -196.31> Velocity: <-96.34, -96.34>
+Ball 3: Position: <-150.94, -150.94> Velocity: <-105.98, -105.98>
+Ball 4: Position: <22.96, 22.96> Velocity: <0.96, 0.96>
+Ball 5: Position: <35.18, 35.18> Velocity: <-4.82, -4.82>
+
+0:0:4.936
+Ball 1: Position: <239.27, 239.27> Velocity: <9.52, 9.52>
+Ball 2: Position: <-292.66, -292.66> Velocity: <-95.15, -95.15>
+Ball 3: Position: <-256.92, -256.92> Velocity: <-104.67, -104.67>
+Ball 4: Position: <23.93, 23.93> Velocity: <0.95, 0.95>
+Ball 5: Position: <30.37, 30.37> Velocity: <-4.76, -4.76>
+
+0:0:6.17
+Ball 1: Position: <248.78, 248.78> Velocity: <9.4, 9.4>
+Ball 2: Position: <-387.81, -387.81> Velocity: <-93.98, -93.98>
+Ball 3: Position: <-361.59, -361.59> Velocity: <-103.38, -103.38>
+Ball 4: Position: <24.88, 24.88> Velocity: <0.94, 0.94>
+Ball 5: Position: <25.61, 25.61> Velocity: <-4.7, -4.7>
+
+Collision at <24.87811338378334,24.87811338378334>
+.                                       
+.                                       
+======================================  
+... Testing SoccerSim valid ball set ten balls 10 second time slice...
+======================================  
+INITIAL REPORT 
+ ----------
+0:0:0.0
+Ball 1: Position: <150, 150> Velocity: <10, 10>
+Ball 2: Position: <100, 100> Velocity: <-100, -100>
+Ball 3: Position: <200, 200> Velocity: <200, 200>
+Ball 4: Position: <250, 250> Velocity: <-110, -110>
+Ball 5: Position: <20, 20> Velocity: <1, 1>
+Ball 6: Position: <50, 50> Velocity: <-5, -5>
+Ball 7: Position: <-100, -100> Velocity: <200, 200>
+Ball 8: Position: <-200, -200> Velocity: <300, 300>
+Ball 9: Position: <-110, -110> Velocity: <20, 20>
+Ball 10: Position: <1, 1> Velocity: <50, 50>
+
+ - Exception thrown: java.lang.IllegalArgumentException: Invalid Velocity
+.                                       
+.                                       
+======================================  
+... End of SoccerSim Testing...         
+======================================  
