@@ -89,7 +89,13 @@ public class BrobInt {
    *  @return BrobInt that is the reverse of the value of this BrobInt
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt reverser() {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+     String s = internalValue;
+     char letter[] = s.toCharArray();
+     String reverseString = "";
+     for(int i = letter.length-1; i >= 0; i--) {
+       reverseString += letter[i];
+     }
+     return new BrobInt(reverseString);
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,16 +104,15 @@ public class BrobInt {
    *  @param  gint         BrobInt to reverse its value
    *  @return BrobInt that is the reverse of the value of the BrobInt passed as argument
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-  //  public static BrobInt reverser( BrobInt gint ) {
-  //    // brobInt to string then toCharArray on string
-  //    String strgint = Integer.toString(gint);
-  //    char letter[] = strgint.toCharArray();
-  //    String reverseString = "";
-  //    for(int i = letter.length-1; i >= 0; i--) {
-  //      reverseString += letter[i];
-  //    }
-  //    return new BrobInt(reverseString);
-  //  }
+   public static BrobInt reverser(BrobInt gint) {
+     String strgint = gint.toString();
+     char letter[] = strgint.toCharArray();
+     String reverseString = "";
+     for(int i = letter.length-1; i >= 0; i--) {
+       reverseString += letter[i];
+     }
+     return new BrobInt(reverseString);
+   }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to add the value of a BrobIntk passed as argument to this BrobInt using byte array
