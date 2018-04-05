@@ -38,14 +38,34 @@ public class BrobInt {
    private String reversed      = "";        // the backwards version of the internal String representation
    private byte[] byteVersion   = null;      // byte array for storing the string values; uses the reversed string
 
+   public boolean isNeg;
+
   /**
    *  Constructor takes a string and assigns it to the internal storage, checks for a sign character
    *   and handles that accordingly;  it then checks to see if it's all valid digits, and reverses it
    *   for later use
    *  @param  value  String value to make into a BrobInt
    */
-   public BrobInt( String value ) {
-      super();
+   public BrobInt(String value) {
+     internalValue = value;
+     if(value.charAt(0) == '-') {
+       sign = -1;
+     }
+     else {
+       sign = 0;
+     }
+     if(sign == 1) {
+       byteVersion = new byte[internalValue.length() - 1];
+       for(int i = 1; i < internalValue.length(); i++) {
+         byteVersion[i-1] = (byte)internalValue.charAt(i);
+       }
+     }
+     else {
+       byteVersion = new byte[internalValue.length()];
+       for(int i = 0; i < internalValue.length(); i++) {
+         byteVersion[i] = (byte)internalValue.charAt(i);
+       }
+     }
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,7 +76,12 @@ public class BrobInt {
    *  note also that this must check for the '+' and '-' sign digits
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public boolean validateDigits() throws IllegalArgumentException {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+     for(byte b : byteVersion) {
+       if(b > 99 || b < 0) {
+         throw new IllegalArgumentException("Invalid Digit(s)");
+       }
+     }
+     return true;
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,16 +98,23 @@ public class BrobInt {
    *  @param  gint         BrobInt to reverse its value
    *  @return BrobInt that is the reverse of the value of the BrobInt passed as argument
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public static BrobInt reverser( BrobInt gint ) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
-   }
+  //  public static BrobInt reverser( BrobInt gint ) {
+  //    // brobInt to string then toCharArray on string
+  //    String strgint = Integer.toString(gint);
+  //    char letter[] = strgint.toCharArray();
+  //    String reverseString = "";
+  //    for(int i = letter.length-1; i >= 0; i--) {
+  //      reverseString += letter[i];
+  //    }
+  //    return new BrobInt(reverseString);
+  //  }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to add the value of a BrobIntk passed as argument to this BrobInt using byte array
    *  @param  gint         BrobInt to add to this
    *  @return BrobInt that is the sum of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt addByte( BrobInt gint ) {
+   public BrobInt addByte(BrobInt gint) {
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -91,7 +123,7 @@ public class BrobInt {
    *  @param  gint         BrobInt to add to this
    *  @return BrobInt that is the sum of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt addInt( BrobInt gint ) {
+   public BrobInt addInt(BrobInt gint) {
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -100,7 +132,7 @@ public class BrobInt {
    *  @param  gint         BrobInt to subtract from this
    *  @return BrobInt that is the difference of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt subtractByte( BrobInt gint ) {
+   public BrobInt subtractByte(BrobInt gint) {
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -109,7 +141,7 @@ public class BrobInt {
    *  @param  gint         BrobInt to subtract from this
    *  @return BrobInt that is the difference of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt subtractInt( BrobInt gint ) {
+   public BrobInt subtractInt(BrobInt gint) {
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -118,7 +150,7 @@ public class BrobInt {
    *  @param  gint         BrobInt to multiply by this
    *  @return BrobInt that is the product of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt multiply( BrobInt gint ) {
+   public BrobInt multiply(BrobInt gint) {
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -127,7 +159,7 @@ public class BrobInt {
    *  @param  gint         BrobInt to divide this by
    *  @return BrobInt that is the dividend of this BrobInt divided by the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt divide( BrobInt gint ) {
+   public BrobInt divide(BrobInt gint) {
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -136,7 +168,7 @@ public class BrobInt {
    *  @param  gint         BrobInt to divide this one by
    *  @return BrobInt that is the remainder of division of this BrobInt by the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt remainder( BrobInt gint ) {
+   public BrobInt remainder(BrobInt gint) {
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -147,8 +179,8 @@ public class BrobInt {
    *  NOTE: this method performs a lexicographical comparison using the java String "compareTo()" method
    *        THAT was easy.....
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public int compareTo( BrobInt gint ) {
-      return (internalValue.compareTo( gint.toString() ));
+   public int compareTo(BrobInt gint) {
+      return (internalValue.compareTo(gint.toString()));
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -159,7 +191,7 @@ public class BrobInt {
    *        also using the java String "equals()" method -- THAT was easy, too..........
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public boolean equals( BrobInt gint ) {
-      return (internalValue.equals( gint.toString() ));
+      return (internalValue.equals(gint.toString()));
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -167,12 +199,12 @@ public class BrobInt {
    *  @param  value         long type number to make into a BrobInt
    *  @return BrobInt  which is the BrobInt representation of the long
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public static BrobInt valueOf( long value ) throws NumberFormatException {
+   public static BrobInt valueOf(long value) throws NumberFormatException {
       BrobInt gi = null;
       try {
-         gi = new BrobInt( new Long( value ).toString() );
+         gi = new BrobInt(new Long(value).toString());
       }
-      catch( NumberFormatException nfe ) {
+      catch(NumberFormatException nfe) {
          System.out.println( "\n  Sorry, the value must be numeric of type long." );
       }
       return gi;
@@ -194,7 +226,7 @@ public class BrobInt {
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to display an Array representation of this BrobInt as its bytes
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public void toArray( byte[] d ) {
+   public void toArray(byte[] d) {
       System.out.println( Arrays.toString( d ) );
    }
 
@@ -203,7 +235,7 @@ public class BrobInt {
    *  @param  args  String array which contains command line arguments
    *  note:  we don't really care about these
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public static void main( String[] args ) {
+   public static void main(String[] args) {
       System.out.println( "\n  Hello, world, from the BrobInt program!!\n" );
       System.out.println( "\n   You should run your tests from the BrobIntTester...\n" );
 
