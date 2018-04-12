@@ -47,9 +47,13 @@ public class BrobInt {
    *  @param  value  String value to make into a BrobInt
    */
    public BrobInt(String value) {
+     // Need to validateDigits and reverse
      internalValue = value;
+     if(internalValue.length() % 2 != 0) {
+       internalValue.concat("0");
+     }
      if(value.charAt(0) == '-') {
-       sign = -1;
+       sign = 1;
      }
      else {
        sign = 0;
@@ -89,13 +93,12 @@ public class BrobInt {
    *  @return BrobInt that is the reverse of the value of this BrobInt
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt reverser() {
-     String s = internalValue;
-     char letter[] = s.toCharArray();
-     String reverseString = "";
-     for(int i = letter.length-1; i >= 0; i--) {
-       reverseString += letter[i];
+     if(this.sign == 1) {
+       return new BrobInt('-' + this.reversed);
      }
-     return new BrobInt(reverseString);
+     else {
+       return new BrobInt(this.reversed);
+     }
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -124,29 +127,11 @@ public class BrobInt {
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   *  Method to add the value of a BrobIntk passed as argument to this BrobInt using int array
-   *  @param  gint         BrobInt to add to this
-   *  @return BrobInt that is the sum of the value of this BrobInt and the one passed in
-   *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt addInt(BrobInt gint) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
-   }
-
-  /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to subtract the value of a BrobIntk passed as argument to this BrobInt using bytes
    *  @param  gint         BrobInt to subtract from this
    *  @return BrobInt that is the difference of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt subtractByte(BrobInt gint) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
-   }
-
-  /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   *  Method to subtract the value of a BrobIntk passed as argument to this BrobInt using int array
-   *  @param  gint         BrobInt to subtract from this
-   *  @return BrobInt that is the difference of the value of this BrobInt and the one passed in
-   *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt subtractInt(BrobInt gint) {
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
