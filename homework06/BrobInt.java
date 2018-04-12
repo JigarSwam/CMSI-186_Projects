@@ -60,8 +60,14 @@ public class BrobInt {
      }
      if(sign == 1) {
        byteVersion = new byte[internalValue.length() - 1];
+       // each index of byteVersion needs to be the reversed version of internalValue
        for(int i = 1; i < internalValue.length(); i++) {
          byteVersion[i-1] = (byte)internalValue.charAt(i);
+       }
+       if(byteVersion.validateDigits()){
+         for(int i = byteVersion.length-1; i >= 0; i--) {
+           reversed += byteVersion[i];
+         }
        }
      }
      else {
