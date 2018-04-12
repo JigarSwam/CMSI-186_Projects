@@ -47,11 +47,9 @@ public class BrobInt {
    *  @param  value  String value to make into a BrobInt
    */
    public BrobInt(String value) {
+     // try catch validate digits
      // Need to validateDigits and reverse
      internalValue = value;
-     if(internalValue.length() % 2 != 0) {
-       internalValue.concat("0");
-     }
      if(value.charAt(0) == '-') {
        sign = 1;
      }
@@ -60,20 +58,22 @@ public class BrobInt {
      }
      if(sign == 1) {
        byteVersion = new byte[internalValue.length() - 1];
-       // each index of byteVersion needs to be the reversed version of internalValue
        for(int i = 1; i < internalValue.length(); i++) {
-         byteVersion[i-1] = (byte)internalValue.charAt(i);
+         byteVersion[i-1] = (byte)reversed.charAt(i);
        }
-       if(byteVersion.validateDigits()){
-         for(int i = byteVersion.length-1; i >= 0; i--) {
-           reversed += byteVersion[i];
-         }
+       try {
+         validateDigits();
+       }
+       catch (IllegalArgumentException iae){
+         System.out.println(iae.toString());
+         System.exit(1);
        }
      }
      else {
        byteVersion = new byte[internalValue.length()];
+       // validate if not throw exception
        for(int i = 0; i < internalValue.length(); i++) {
-         byteVersion[i] = (byte)internalValue.charAt(i);
+         byteVersion[i] = (byte)reversed.charAt(i);
        }
      }
    }
@@ -87,7 +87,7 @@ public class BrobInt {
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public boolean validateDigits() throws IllegalArgumentException {
      for(byte b : byteVersion) {
-       if(b > 99 || b < 0) {
+       if(b > 9 || b < 0) {
          throw new IllegalArgumentException("Invalid Digit(s)");
        }
      }
@@ -98,13 +98,8 @@ public class BrobInt {
    *  Method to reverse the value of this BrobInt
    *  @return BrobInt that is the reverse of the value of this BrobInt
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public BrobInt reverser() {
-     if(this.sign == 1) {
-       return new BrobInt('-' + this.reversed);
-     }
-     else {
-       return new BrobInt(this.reversed);
-     }
+   public void reverser() {
+     reversed = new StringBuffer(internalValue).reverse().toString();
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

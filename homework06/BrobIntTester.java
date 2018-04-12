@@ -200,7 +200,7 @@ public class BrobIntTester {
   //     }
   //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
    //
-  //     System.out.println( "\n\n    TESTING ADD() AND ADDINT() METHODS:\n" +
+  //     System.out.println( "\n\n    TESTING addByte() METHOD:\n" +
   //                         "    =======================================" );
   //     try {
   //        System.out.println( "\n    Test 013: Making an eleventh and twelfth new BrobInt, calling add method: "  );
@@ -250,23 +250,10 @@ public class BrobIntTester {
   //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
    //
   //     try {
-  //        System.out.println( "    Test 017: Adding g11 and g13 [10 + 234567] using ints: " );
-  //        System.out.println( "      expecting: 234577 and got " + g11.addInt( g13 ) );
-  //     }
-  //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-   //
-  //     try {
   //        System.out.println( "    Test 018: Adding g13 and g11 [234567 + 10] using bytes: " );
-  //        System.out.println( "      expecting: 234577 and got " + g13.add( g11 ) );
+  //        System.out.println( "      expecting: 234577 and got " + g13.addByte( g11 ) );
   //     }
   //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-   //
-  //     try {
-  //        System.out.println( "    Test 019: Adding g13 and g11 [234567 + 10] using ints: " );
-  //        System.out.println( "      expecting: 234577 and got " + g13.addInt( g11 ) );
-  //     }
-  //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-   //
   //     System.out.println( "\n    Test 020: Making a fourteenth new BrobInt, calling add methods: "  );
   //     try {
   //        g14 = new BrobInt( g14String );
@@ -296,22 +283,10 @@ public class BrobIntTester {
   //        System.out.println( "      expecting: -234577 and got " + g14.add( g15 ) );
   //     }
   //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-   //
-  //     try {
-  //        System.out.println( "    Test 023: Adding g14 and g15 [-234567 + -10] using ints: " );
-  //        System.out.println( "      expecting: -234577 and got " + g14.addInt( g15 ) );
-  //     }
-  //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-   //
+  //
   //     try {
   //        System.out.println( "    Test 024: Adding g15 and g14 [-10 + -234567] using bytes: " );
   //        System.out.println( "      expecting: -234577 and got " + g15.add( g14 ) );
-  //     }
-  //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-   //
-  //     try {
-  //        System.out.println( "    Test 025: Adding g15 and g14 [-10 + -234567] using ints: " );
-  //        System.out.println( "      expecting: -234577 and got " + g15.addInt( g14 ) );
   //     }
   //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
    //
@@ -330,20 +305,8 @@ public class BrobIntTester {
   //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
    //
   //     try {
-  //        System.out.println( "    Test 028: Adding g14 and g16 [-234567 + -999999] using ints: " );
-  //        System.out.println( "      expecting: -1234566 and got " + g14.addInt( g16 ) );
-  //     }
-  //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-   //
-  //     try {
   //        System.out.println( "    Test 029: Adding g16 and g14 [-999999 + -234567] using bytes: " );
   //        System.out.println( "      expecting: -1234566 and got " + g16.add( g14 ) );
-  //     }
-  //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-   //
-  //     try {
-  //        System.out.println( "    Test 030: Adding g16 and g14 [-999999 + -234567] using ints: " );
-  //        System.out.println( "      expecting: -1234566 and got " + g16.addInt( g14 ) );
   //     }
   //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
    //
@@ -351,13 +314,6 @@ public class BrobIntTester {
   //        System.out.println( "\n      Test 031: Adding g1 and g4 using bytes: " );
   //        System.out.println( "      expecting: 144127909719725076806064402568842359092656528233967026820237074760\n" +
   //                            "        and got: " + g1.add( g4 ) );
-  //     }
-  //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-   //
-  //     try {
-  //        System.out.println( "\n      Test 032: Adding g4 and g1 using ints: " );
-  //        System.out.println( "      expecting: 144127909719725076806064402568842359092656528233967026820237074760\n" +
-  //                            "        and got: " + g4.addInt( g1 ) );
   //     }
   //     catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
    //
