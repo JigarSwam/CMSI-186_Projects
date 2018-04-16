@@ -13,30 +13,30 @@ import java.util.Arrays;
 
 public class BrobInt {
 
-   public static final BrobInt ZERO     = new BrobInt(  "0" );      /// Constant for "zero"
-   public static final BrobInt ONE      = new BrobInt(  "1" );      /// Constant for "one"
-   public static final BrobInt TWO      = new BrobInt(  "2" );      /// Constant for "two"
-   public static final BrobInt THREE    = new BrobInt(  "3" );      /// Constant for "three"
-   public static final BrobInt FOUR     = new BrobInt(  "4" );      /// Constant for "four"
-   public static final BrobInt FIVE     = new BrobInt(  "5" );      /// Constant for "five"
-   public static final BrobInt SIX      = new BrobInt(  "6" );      /// Constant for "six"
-   public static final BrobInt SEVEN    = new BrobInt(  "7" );      /// Constant for "seven"
-   public static final BrobInt EIGHT    = new BrobInt(  "8" );      /// Constant for "eight"
-   public static final BrobInt NINE     = new BrobInt(  "9" );      /// Constant for "nine"
-   public static final BrobInt TEN      = new BrobInt( "10" );      /// Constant for "ten"
+   public static BrobInt ZERO     = new BrobInt(  "0" );      // Constant for "zero"
+   public static BrobInt ONE      = new BrobInt(  "1" );      // Constant for "one"
+   public static BrobInt TWO      = new BrobInt(  "2" );      // Constant for "two"
+   public static BrobInt THREE    = new BrobInt(  "3" );      // Constant for "three"
+   public static BrobInt FOUR     = new BrobInt(  "4" );      // Constant for "four"
+   public static BrobInt FIVE     = new BrobInt(  "5" );      // Constant for "five"
+   public static BrobInt SIX      = new BrobInt(  "6" );      // Constant for "six"
+   public static BrobInt SEVEN    = new BrobInt(  "7" );      // Constant for "seven"
+   public static BrobInt EIGHT    = new BrobInt(  "8" );      // Constant for "eight"
+   public static BrobInt NINE     = new BrobInt(  "9" );      // Constant for "nine"
+   public static BrobInt TEN      = new BrobInt( "10" );      // Constant for "ten"
 
   /// Some constants for other intrinsic data types
   ///  these can help speed up the math if they fit into the proper memory space
-   public static final BrobInt MAX_INT  = new BrobInt( new Integer( Integer.MAX_VALUE ).toString() );
-   public static final BrobInt MIN_INT  = new BrobInt( new Integer( Integer.MIN_VALUE ).toString() );
-   public static final BrobInt MAX_LONG = new BrobInt( new Long( Long.MAX_VALUE ).toString() );
-   public static final BrobInt MIN_LONG = new BrobInt( new Long( Long.MIN_VALUE ).toString() );
+  //  public static BrobInt MAX_INT  = new BrobInt( new Integer( Integer.MAX_VALUE ).toString() );
+  //  public static BrobInt MIN_INT  = new BrobInt( new Integer( Integer.MIN_VALUE ).toString() );
+  //  public static BrobInt MAX_LONG = new BrobInt( new Long( Long.MAX_VALUE ).toString() );
+  //  public static BrobInt MIN_LONG = new BrobInt( new Long( Long.MIN_VALUE ).toString() );
 
   /// These are the internal fields
-   private String internalValue = "";        // internal String representation of this BrobInt
-   private byte   sign          = 0;         // "0" is positive, "1" is negative
-   private String reversed      = "";        // the backwards version of the internal String representation
-   private byte[] byteVersion   = null;      // byte array for storing the string values; uses the reversed string
+   public String internalValue = "";        // internal String representation of this BrobInt
+   public byte   sign          = 0;         // "0" is positive, "1" is negative
+   public String reversed      = "";        // the backwards version of the internal String representation
+   public byte[] byteVersion   = null;      // byte array for storing the string values; uses the reversed string
 
    public boolean isNeg;
 
@@ -47,35 +47,23 @@ public class BrobInt {
    *  @param  value  String value to make into a BrobInt
    */
    public BrobInt(String value) {
-     // try catch validate digits
-     // Need to validateDigits and reverse
      internalValue = value;
      if(value.charAt(0) == '-') {
+       value = value.replace("-", "");
        sign = 1;
      }
      else {
        sign = 0;
+       value = value.replace("+", "");
      }
-     if(sign == 1) {
-       byteVersion = new byte[internalValue.length() - 1];
-       for(int i = 1; i < internalValue.length(); i++) {
-         byteVersion[i-1] = (byte)reversed.charAt(i);
-       }
-       try {
-         validateDigits();
-       }
-       catch (IllegalArgumentException iae){
-         System.out.println(iae.toString());
-         System.exit(1);
-       }
-     }
-     else {
        byteVersion = new byte[internalValue.length()];
-       // validate if not throw exception
-       for(int i = 0; i < internalValue.length(); i++) {
-         byteVersion[i] = (byte)reversed.charAt(i);
+       int index = 0;
+       for(int i = internalValue.length()-1; i >= 0; i--) {
+         byteVersion[index] = (byte)(internalValue.charAt(i) - 48);
+         reversed += internalValue.charAt(i);
+         index++;
        }
-     }
+       validateDigits();
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -227,8 +215,9 @@ public class BrobInt {
    *  note:  we don't really care about these
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public static void main(String[] args) {
-      System.out.println( "\n  Hello, world, from the BrobInt program!!\n" );
-      System.out.println( "\n   You should run your tests from the BrobIntTester...\n" );
+
+     System.out.println( "\n  Hello, world, from the BrobInt program!!\n" );
+     System.out.println( "\n   You should run your tests from the BrobIntTester...\n" );
 
       System.exit( 0 );
    }
