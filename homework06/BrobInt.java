@@ -56,11 +56,11 @@ public class BrobInt {
        sign = 0;
        value = value.replace("+", "");
      }
-       byteVersion = new byte[internalValue.length()];
+       byteVersion = new byte[value.length()];
        int index = 0;
-       for(int i = internalValue.length()-1; i >= 0; i--) {
-         byteVersion[index] = (byte)(internalValue.charAt(i) - 48);
-         reversed += internalValue.charAt(i);
+       for(int i = value.length()-1; i >= 0; i--) {
+         byteVersion[index] = (byte)(value.charAt(i) - 48);
+         reversed += value.charAt(i);
          index++;
        }
        validateDigits();
@@ -112,7 +112,39 @@ public class BrobInt {
    *  @return BrobInt that is the sum of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt addByte(BrobInt gint) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+     String result = "";
+     BrobInt isBigger;
+     BrobInt isSmaller;
+     byte carry = 0;
+
+     isBigger = (Math.max(this.byteVersion.length, gint.byteVersion.length) == this.byteVersion.length) ? this : gint;
+     isSmaller = (Math.max(this.byteVersion.length, gint.byteVersion.length) == this.byteVersion.length) ? gint : this;
+
+     byte[] total = new byte[isBigger.byteVersion.length + 1];
+
+     if(gint.sign == this.sign) {
+       for(int i = 0; i < isBigger.byteVersion.length; i++) {
+         if(i < isSmaller.byteVersion.length) {
+           total[i] = (byte)((isBigger.byteVersion[i] + isSmaller.byteVersion[i] + carry) % 10);
+           carry = isBigger.byteVersion[i] + isSmaller.byteVersion[i] + carry > 9 ? (byte)1 : (byte)0;
+         }
+         else {
+           total[i] = (byte)((isBigger.byteVersion[i] + carry) % 10);
+           carry = isBigger.byteVersion[i] + carry > 9 ? (byte)1 : (byte)0;
+         }
+        }
+        if(carry > 0) {
+          total[total.length - 1] = carry;
+        }
+        for(int i = total.length-1; i >= 0; i--) {
+          result += total[i];
+        }
+        result = result.replaceAll("^0+(?!$)", "");
+        if(gint.sign == 1) {
+          result = "-" + result;
+       }
+     }
+     return new BrobInt(result);
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
