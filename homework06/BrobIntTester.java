@@ -150,55 +150,55 @@ public class BrobIntTester {
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
-//       System.out.println( "\n\n    TESTING VALUEOF( LONG ) METHOD:\n" +
-//                           "    ===============================" );
-//       System.out.println( "\n    Test 011: Creating several long type values to check the 'valueOf()' method: " );
-//       long long01 = Long.MAX_VALUE;
-//       long long02 = Long.MIN_VALUE;
-//       long long03 = 1234567890;
-//       try {
-//          System.out.println( "      expecting: " + Long.MAX_VALUE + "\n" +
-//                              "        and got: " + long01 );
-//       }
-//       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-//
-//       try {
-//          System.out.println( "      expecting: " + Long.MIN_VALUE + "\n" +
-//                              "        and got: " + long02 );
-//       }
-//       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-//
-//       try {
-//          System.out.println( "      expecting: 1234567890\n" +
-//                              "        and got: " + long03 );
-//       }
-//       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-//
-//       try {
-//          System.out.println( "    Test 012: Now testing 'valueOf()' method: " );
-//          g8  = BrobInt.valueOf( long01 );
-//          g9  = BrobInt.valueOf( long02 );
-//          g10 = BrobInt.valueOf( long03 );
-//       }
-//       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-//
-//       try {
-//          System.out.println( "      expecting: " + Long.MAX_VALUE + "\n" +
-//                              "        and got: " + g8.toString() );
-//       }
-//       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-//
-//       try {
-//          System.out.println( "      expecting: " + Long.MIN_VALUE + "\n" +
-//                              "        and got: " + g9.toString() );
-//       }
-//       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-//
-//       try {
-//          System.out.println( "      expecting: 1234567890\n" +
-//                              "        and got: " + g10.toString() );
-//       }
-//       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+      System.out.println( "\n\n    TESTING VALUEOF( LONG ) METHOD:\n" +
+                          "    ===============================" );
+      System.out.println( "\n    Test 011: Creating several long type values to check the 'valueOf()' method: " );
+      long long01 = Long.MAX_VALUE;
+      long long02 = Long.MIN_VALUE;
+      long long03 = 1234567890;
+      try {
+         System.out.println( "      expecting: " + Long.MAX_VALUE + "\n" +
+                             "        and got: " + long01 );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
+      try {
+         System.out.println( "      expecting: " + Long.MIN_VALUE + "\n" +
+                             "        and got: " + long02 );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
+      try {
+         System.out.println( "      expecting: 1234567890\n" +
+                             "        and got: " + long03 );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
+      try {
+         System.out.println( "    Test 012: Now testing 'valueOf()' method: " );
+         g8  = BrobInt.valueOf( long01 );
+         g9  = BrobInt.valueOf( long02 );
+         g10 = BrobInt.valueOf( long03 );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
+      try {
+         System.out.println( "      expecting: " + Long.MAX_VALUE + "\n" +
+                             "        and got: " + g8.toString() );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
+      try {
+         System.out.println( "      expecting: " + Long.MIN_VALUE + "\n" +
+                             "        and got: " + g9.toString() );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
+      try {
+         System.out.println( "      expecting: 1234567890\n" +
+                             "        and got: " + g10.toString() );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 //
 //       System.out.println( "\n\n    TESTING addByte() METHOD:\n" +
 //                           "    =======================================" );
