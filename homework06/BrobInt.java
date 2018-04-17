@@ -153,6 +153,35 @@ public class BrobInt {
    *  @return BrobInt that is the difference of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt subtractByte(BrobInt gint) {
+     String result = "";
+
+     byte borrow = 0;
+
+     // case 1
+
+     // case 2
+
+     // case 3
+
+     // case 4
+
+     // case 5
+
+     // case 6
+
+    //  for(int i = 0; i < a.byteVersion.length; i++) {
+    //    if(a[i] - b[i] < 0){
+    //      a[i+1] = (byte)(a[i+1] - 1);
+    //      borrow = 10;
+    //      a[i] = (byte)(a[i] + borrow);
+    //    }
+    //    difference[i] = (byte)(a[i] - b[i]);
+    //  }
+
+     // subtract algorithm here
+
+     // if signs of bigger and smaller are opposite (i.e big - (-small)) just addByte();
+     // if it is -big - small, just add big + small and put '-' in front;
       throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
    }
 
@@ -246,6 +275,32 @@ public class BrobInt {
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public int compareTo(BrobInt gint) {
       return (internalValue.compareTo(gint.toString()));
+   }
+
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Helper method to compare BrobInt passed as argument to this BrobInt
+ * @param gint BrobInt to compare to this
+ * @return int that is either -1/0/1 depending on which value is bigger
+ * NOTE: -1 if gint is bigger, 0 if equal, 1 if this is bigger
+ *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+   public int bigger(BrobInt gint) {
+     if(this.byteVersion.length > gint.byteVersion.length) {
+       return 1;
+     }
+     if(this.byteVersion.length < gint.byteVersion.length) {
+       return -1;
+     }
+     if(this.byteVersion.length == gint.byteVersion.length) {
+       for(int i = 0; i < this.byteVersion.length; i++) {
+         if(this.byteVersion[i] > gint.byteVersion[i]) {
+           return 1;
+         }
+         if(this.byteVersion[i] < gint.byteVersion[i]) {
+           return -1;
+         }
+       }
+     }
+     return 0;
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
