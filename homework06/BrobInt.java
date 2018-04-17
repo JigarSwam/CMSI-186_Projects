@@ -162,7 +162,61 @@ public class BrobInt {
    *  @return BrobInt that is the product of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt multiply(BrobInt gint) {
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+     String result = "";
+     byte carry = 0;
+
+     if(this.sign != gint.sign) {
+       result += '-';
+     }
+     byte[] a;
+     byte[] b;
+     if(this.byteVersion.length > gint.byteVersion.length) {
+       a = new byte[this.byteVersion.length];
+       b = new byte[gint.byteVersion.length];
+
+       for(int i = 0; i < this.byteVersion.length; i++) {
+         a[i] = this.byteVersion[i];
+       }
+       for(int i = 0; i < gint.byteVersion.length; i++) {
+         b[i] = gint.byteVersion[i];
+       }
+     } else {
+       a = new byte[gint.byteVersion.length];
+       b = new byte[this.byteVersion.length];
+
+       for(int i = 0; i < gint.byteVersion.length; i++) {
+         a[i] = gint.byteVersion[i];
+       }
+       for(int i = 0; i < this.byteVersion.length; i++) {
+         b[i] = this.byteVersion[i];
+       }
+     }
+
+  byte[] product = new byte[a.length + b.length + 1];
+  for(int i = 0; i < product.length; i++) {
+    product[i] = 0;
+  }
+
+  for(int i = 0; i < b.length; i++) {
+    int k = i;
+    for(int j = 0; j < a.length; j++) {
+      product[k] = (byte)((a[j] * b[i]) + product[k]);
+      if(product[k] > 9) {
+        carry = (byte)(product[k] / 10);
+        product[k] = (byte)(product[k] % 10);
+      } else {
+        carry = 0;
+      }
+      product[k+1] += carry;
+      k++;
+    }
+  }
+
+  for(int i = product.length-1; i >= 0; i--) {
+    result += product[i];
+  }
+  result = result.replaceAll("^0+(?!$)", "");
+  return new BrobInt(result);
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
