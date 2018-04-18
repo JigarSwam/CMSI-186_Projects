@@ -362,7 +362,7 @@ public class BrobIntTester {
          System.out.println( "      expecting: -234557\n" +
                              "        and got: " + g11.subtractByte( g13 ) );
       }
-      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); System.out.println(e); }
 
       System.out.println( "\n      Test 040: Subtracting g13 take away g15 [234567 - (-10)] using bytes: " );
       try {

@@ -168,30 +168,11 @@ public class BrobInt {
        bigger = new BrobInt(gint.toString());
        smaller = new BrobInt(this.toString());
 
-       if(bigger.sign == 0) {
-         bigger.sign = 1;
-       } else {
-         bigger.sign = 0;
-       }
-      // smaller.addByte(bigger);
-
-      //  if(smaller.sign == 1 && bigger.sign != 1) {
-      //    smaller.sign = 0;
-      //    smaller.addByte(bigger);
-      //    }
-      //    else if(bigger.sign == 1 && smaller.sign != 1) {
-      //      smaller.addByte(bigger);
-      //    }
-      //    else if(bigger.sign == 1 && smaller.sign == 1) {
-      //      if(this.equals(smaller)) {
-      //        smaller.sign = 1;
-      //        smaller.addByte(bigger);
-      //      } else if(this.equals(bigger)) {
-      //        bigger.sign = 1;
-      //        String outcome = '-' + bigger.addByte(smaller).toString();
-      //        return new BrobInt(outcome);
-      //      }
-      //   }
+       if (bigger.sign == 0) {
+               bigger.sign = 1;
+           } else {
+               bigger.sign = 0;
+           }
      }
 
      byte[] difference = new byte[bigger.byteVersion.length + 1];
