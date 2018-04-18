@@ -155,34 +155,65 @@ public class BrobInt {
    public BrobInt subtractByte(BrobInt gint) {
      String result = "";
 
-     byte borrow = 0;
+     byte big = (byte)(this.bigger(gint));
+     byte borrowChecker = 0;
 
-     // case 1
+     BrobInt bigger;
+     BrobInt smaller;
 
-     // case 2
+     if(big >= 0) {
+       bigger = new BrobInt(this.toString());
+       smaller = new BrobInt(gint.toString());
+     } else {
+       bigger = new BrobInt(gint.toString());
+       smaller = new BrobInt(this.toString());
 
-     // case 3
+       if(bigger.sign == 0) {
+         bigger.sign = 1;
+       } else {
+         bigger.sign = 0;
+       }
+      // smaller.addByte(bigger);
 
-     // case 4
+      //  if(smaller.sign == 1 && bigger.sign != 1) {
+      //    smaller.sign = 0;
+      //    smaller.addByte(bigger);
+      //    }
+      //    else if(bigger.sign == 1 && smaller.sign != 1) {
+      //      smaller.addByte(bigger);
+      //    }
+      //    else if(bigger.sign == 1 && smaller.sign == 1) {
+      //      if(this.equals(smaller)) {
+      //        smaller.sign = 1;
+      //        smaller.addByte(bigger);
+      //      } else if(this.equals(bigger)) {
+      //        bigger.sign = 1;
+      //        String outcome = '-' + bigger.addByte(smaller).toString();
+      //        return new BrobInt(outcome);
+      //      }
+      //   }
+     }
 
-     // case 5
-
-     // case 6
-
-    //  for(int i = 0; i < a.byteVersion.length; i++) {
-    //    if(a[i] - b[i] < 0){
-    //      a[i+1] = (byte)(a[i+1] - 1);
-    //      borrow = 10;
-    //      a[i] = (byte)(a[i] + borrow);
-    //    }
-    //    difference[i] = (byte)(a[i] - b[i]);
-    //  }
-
-     // subtract algorithm here
-
-     // if signs of bigger and smaller are opposite (i.e big - (-small)) just addByte();
-     // if it is -big - small, just add big + small and put '-' in front;
-      throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+     byte[] difference = new byte[bigger.byteVersion.length + 1];
+       for(int i = 0; i < bigger.byteVersion.length; i++) {
+         if(i < smaller.byteVersion.length) {
+           borrowChecker = (byte)(bigger.byteVersion[i] - smaller.byteVersion[i]);
+           if(borrowChecker < 0) {
+             bigger.byteVersion[i+1] = (byte)(bigger.byteVersion[i+1] - 1);
+             bigger.byteVersion[i] = (byte)(bigger.byteVersion[i] + 10);
+             difference[i] = (byte)(bigger.byteVersion[i] - smaller.byteVersion[i]);
+           } else {
+             difference[i] = borrowChecker;
+           }
+         } else {
+           difference[i] = bigger.byteVersion[i];
+         }
+       }
+       for(int i = difference.length-1; i >= 0; i--) {
+         result += difference[i];
+       }
+        result = result.replaceAll("^0+(?!$)", "");
+        return new BrobInt(result);
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -199,6 +230,7 @@ public class BrobInt {
      }
      byte[] a;
      byte[] b;
+
      if(this.byteVersion.length > gint.byteVersion.length) {
        a = new byte[this.byteVersion.length];
        b = new byte[gint.byteVersion.length];
