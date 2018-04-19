@@ -24,8 +24,6 @@ public class Fibonacci {
    private static final  int NO_CMD_LINE_ARGS = -1;
    private static final  int BAD_CMD_LINE_ARG = -2;
 
-   public static final BrobInt one = new BrobInt(Integer.toString(1));
-   public static final BrobInt two = new BrobInt(Integer.toString(1));
 
 
    public static BrobInt Fibonacci(int fibNumber) {
