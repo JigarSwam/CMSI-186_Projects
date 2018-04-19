@@ -24,12 +24,34 @@ public class Fibonacci {
    private static final  int NO_CMD_LINE_ARGS = -1;
    private static final  int BAD_CMD_LINE_ARG = -2;
 
-   public Fibonacci() {
-      super();
+   public static final BrobInt one = new BrobInt(Integer.toString(1));
+   public static final BrobInt two = new BrobInt(Integer.toString(1));
+
+
+   public static BrobInt Fibonacci(int fibNumber) {
+
+     if(fibNumber == 1) {
+       return BrobInt.ZERO;
+     } else if(fibNumber == 2) {
+       return BrobInt.ONE;
+     }
+    BrobInt number = new BrobInt("0");
+    BrobInt prevNum = new BrobInt("1");
+
+     for(int i = 0; i < fibNumber - 1; i++) {
+       BrobInt tempVar = number.addByte(prevNum);
+       prevNum = number;
+       number = tempVar;
+     }
+     return number;
    }
 
    public static void main( String[] args ) {
+
       System.out.println( "\n\n   Welcome to the Fibonacci sequence number finder!\n" );
+      if( args.length != 1) {
+        throw new IllegalArgumentException("Too many args");
+      }
       if( 0 == args.length ) {
          System.out.println( usageMessage );
          System.exit( NO_CMD_LINE_ARGS );
@@ -44,6 +66,7 @@ public class Fibonacci {
       if( 2 == args.length ) {
          try {
             working = Integer.parseInt( args[1] );
+
          }
          catch( NumberFormatException nfe ) {
             System.out.println( "\n   Sorry, that does not compute!!" + usageMessage );
@@ -64,7 +87,7 @@ public class Fibonacci {
                    break;
       }
 
-      System.out.println( "\n\n   Starting from zero, the " + maxCount + cardinality + " Fibonacci number is: " );
+      System.out.println( "\n\n   Starting from zero, the " + maxCount + cardinality + " Fibonacci number is: " + Fibonacci(Integer.parseInt(args[0])));
 
      // NOTE: you may want to handle the first and second Fibonacc numbers as 'special cases'...
 

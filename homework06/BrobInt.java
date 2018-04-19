@@ -157,9 +157,11 @@ public class BrobInt {
 
      byte big = (byte)(this.bigger(gint));
      byte borrowChecker = 0;
-
      BrobInt bigger;
      BrobInt smaller;
+
+     BrobInt copy1 = new BrobInt(this.toString());
+     BrobInt copy2 = new BrobInt(gint.toString());
 
      if(big >= 0) {
        bigger = new BrobInt(this.toString());
@@ -176,6 +178,17 @@ public class BrobInt {
      }
 
      byte[] difference = new byte[bigger.byteVersion.length + 1];
+
+     if(copy2.sign == 1 && copy1.sign == 0) {
+       copy2.sign = 0;
+       return copy1.addByte(copy2);
+     }
+
+     if(copy1.sign == 1 && copy2.sign == 0) {
+       copy2.sign = 1;
+       return copy1.addByte(copy2);
+     }
+
        for(int i = 0; i < bigger.byteVersion.length; i++) {
          if(i < smaller.byteVersion.length) {
            borrowChecker = (byte)(bigger.byteVersion[i] - smaller.byteVersion[i]);
@@ -194,6 +207,9 @@ public class BrobInt {
          result += difference[i];
        }
         result = result.replaceAll("^0+(?!$)", "");
+        if (bigger.sign == 1) {
+          result = '-' + result;
+        }
         return new BrobInt(result);
    }
 
