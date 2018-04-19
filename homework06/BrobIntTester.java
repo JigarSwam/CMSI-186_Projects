@@ -482,39 +482,39 @@ public class BrobIntTester {
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
 
-//       System.out.println( "\n\n    TESTING DIVIDE() METHOD:\n" +
-//                           "    ========================" );
-//       System.out.println( "\n      Test 056: Dividing g19 by g20 [56789 / 37]: " );
-//       try {
-//          System.out.println( "      expecting: 1534\n" +
-//                              "        and got: " + g19.divide( g20 ) );
-//       }
-//       catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
-//
-//       System.out.println( "\n      Test 057: Dividing g17 by g20 [765 / 37]: " );
-//       try {
-//          System.out.println( "      expecting: 20\n" +
-//                              "        and got: " + g17.divide( g20 ) );
-//       }
-//       catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
-//
-//       System.out.println( "\n\n    TESTING REMAINDER() METHOD:\n" +
-//                          "    ===========================" );
-//       System.out.println( "\n      Test 058: Modding g17 by g18 [765 % 23]: " );
-//       try {
-//          System.out.println( "      expecting: 6\n" +
-//                              "        and got: " + g17.remainder( g18 ) );
-//       }
-//       catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
-//
-//       System.out.println( "\n      Test 059: Modding g19 by g20 [56789 % 37]: " );
-//       try {
-//          System.out.println( "      expecting: 31\n" +
-//                              "        and got: " + g19.remainder( g20 ) );
-//       }
-//       catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
-//
-//       System.exit( 0 );
-//
+      System.out.println( "\n\n    TESTING DIVIDE() METHOD:\n" +
+                          "    ========================" );
+      System.out.println( "\n      Test 056: Dividing g19 by g20 [56789 / 37]: " );
+      try {
+         System.out.println( "      expecting: 1534\n" +
+                             "        and got: " + g19.divide( g20 ) );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
+
+      System.out.println( "\n      Test 057: Dividing g17 by g20 [765 / 37]: " );
+      try {
+         System.out.println( "      expecting: 20\n" +
+                             "        and got: " + g17.divide( g20 ) );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
+
+      System.out.println( "\n\n    TESTING REMAINDER() METHOD:\n" +
+                         "    ===========================" );
+      System.out.println( "\n      Test 058: Modding g17 by g18 [765 % 23]: " );
+      try {
+         System.out.println( "      expecting: 6\n" +
+                             "        and got: " + g17.remainder( g18 ) );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
+
+      System.out.println( "\n      Test 059: Modding g19 by g20 [56789 % 37]: " );
+      try {
+         System.out.println( "      expecting: 31\n" +
+                             "        and got: " + g19.remainder( g20 ) );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " + e.toString() ); }
+
+      System.exit( 0 );
+
     }
  }
