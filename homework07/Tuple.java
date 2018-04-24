@@ -2,7 +2,7 @@
  * File name  :  Tuple.java
  * Purpose    :  Find the "nth" Fibonacci number given an argument, using BrobInt class
  * @author    :  B.J. Johnson
- * Modified By: Jigar Swaminarayan
+ * Modified By:  Jigar Swaminarayan
  * Date       :  2017-04-17
  * Description:  @see <a href='http://bjohnson.lmu.build/cmsi186web/homework06.html'>Assignment Page</a>
  * Notes      :  None
@@ -18,7 +18,7 @@ public class Tuple {
   /**
    * Singleton constant representing an impossible tuple.
    */
-   public static final Tuple IMPOSSIBLE = new Tuple( new int[0] );
+   public static final Tuple IMPOSSIBLE = new Tuple(new int[0]);
 
   /**
    * int array that contains the data values for this Tuple object
@@ -32,13 +32,13 @@ public class Tuple {
    *
    * @throws IllegalArgumentException if the count argument is negative
    */
-   public Tuple( int n ) throws IllegalArgumentException {
-      if( n < 0 ) {
+   public Tuple(int n) throws IllegalArgumentException {
+      if(n < 0) {
          throw new IllegalArgumentException();
       }
 
       data = new int[n];
-      for( int i = 0; i < n; i++ ) {
+      for(int i = 0; i < n; i++) {
          data[i] = 0;
       }
    }
@@ -50,13 +50,13 @@ public class Tuple {
    *
    * @throws IllegalArgumentException if the data argument is empty
    */
-   public Tuple( int[] data ) throws IllegalArgumentException {
-      if( data == null ) {
+   public Tuple(int[] data) throws IllegalArgumentException {
+      if(data == null) {
          throw new IllegalArgumentException();
       }
 
       this.data = new int[data.length];
-      for( int i = 0; i < data.length; i++ ) {
+      for(int i = 0; i < data.length; i++) {
          this.data[i] = data[i];
       }
    }
@@ -76,7 +76,7 @@ public class Tuple {
    * @param i  the position of the int to set
    * @param j  the value to which the position should be set
    */
-   public void setElement( int i, int j ) {
+   public void setElement(int i, int j) {
       checkIndex(i);
       data[i] = j;
    }
@@ -88,7 +88,7 @@ public class Tuple {
    *
    * @return the int at position i
    */
-   public int getElement( int i ) {
+   public int getElement(int i) {
       checkIndex(i);
       return data[i];
    }
@@ -110,8 +110,8 @@ public class Tuple {
    */
    public int total() {
       int sum = 0;
-      for( int i = 0; i < length(); i++ ) {
-         sum = sum + getElement( i );
+      for(int i = 0; i < length(); i++) {
+         sum = sum + getElement(i);
       }
 
       return sum;
@@ -124,15 +124,15 @@ public class Tuple {
    *
    * @return the element-wise sum of this and t
    */
-   public Tuple add( Tuple t ) {
+   public Tuple add(Tuple t) {
 
-      if( length() != t.length()) {
+      if(length() != t.length()) {
          throw new IllegalArgumentException();
       }
 
       Tuple sum = new Tuple(length());
-      for( int i = 0; i < length(); i++ ) {
-         sum.setElement(i, getElement( i ) + t.getElement( i ) );
+      for(int i = 0; i < length(); i++) {
+         sum.setElement(i, getElement(i) + t.getElement(i));
       }
 
       return sum;
@@ -146,14 +146,14 @@ public class Tuple {
    * @see java.lang.Object#equals(java.lang.Object)
    */
    @Override
-   public boolean equals( Object t ) {
+   public boolean equals(Object t) {
       if( (t == null) || !(t instanceof Tuple) ||
-          (length() != ((Tuple)t).length())       ) {
+          (length() != ((Tuple)t).length()) ) {
          return false;
       }
 
-      for( int i = 0; i < length(); i++ ) {
-         if( getElement( i ) != ((Tuple)t).getElement( i ) ) {
+      for(int i = 0; i < length(); i++) {
+         if( getElement(i) != ((Tuple)t).getElement(i)) {
             return false;
          }
       }
@@ -170,11 +170,11 @@ public class Tuple {
    @Override
    public int hashCode() {
       int product = 1;
-      if( this.isImpossible() ) {
+      if(this.isImpossible()) {
          return 0;
       }
-      for( int i = 0; i < length(); i++ ) {
-         product = product * getElement( i );
+      for(int i = 0; i < length(); i++) {
+         product = product * getElement(i);
       }
       return (product >= 0) ? product : -product;
    }
@@ -191,7 +191,7 @@ public class Tuple {
       }
 
       String result = "<";
-      for( int i = 0; i < length(); i++ ) {
+      for(int i = 0; i < length(); i++) {
          result += (i > 0 ? "," : "") + data[i];
       }
       return result + ">";
@@ -212,12 +212,12 @@ public class Tuple {
    *
    * @see java.lang.Object#toString()
    */
-   private void checkIndex( int i ) throws IllegalArgumentException {
-      if( i < 0 ) {
+   private void checkIndex(int i) throws IllegalArgumentException {
+      if(i < 0) {
          throw new IllegalArgumentException();
       }
 
-      if( i >= length() ) {
+      if(i >= length()) {
          throw new IllegalArgumentException();
       }
    }
