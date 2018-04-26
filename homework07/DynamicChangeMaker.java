@@ -12,10 +12,29 @@ public class DynamicChangeMaker {
   public static int rowCount = 0;
   public static int columnCount = 0;
 
+
+  /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   *  Method that takes an integer array of denominations and a integer that is the target value.
+   *  @param denominations  Integer Array of the values used to add up to target value.
+   *  @param target  Integer value of the intended total from the denominations
+   * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   public static String makeChangeWithDynamicProgramming(int[] denominations, int target) {
     rowCount = denominations.length;
     columnCount = target + 1;
-    Tuple[][] theTable = new Tuple[rowCount][columnCount];
+    Tuple[][] t = new Tuple[rowCount][columnCount];
+    Tuple denoms = new Tuple(denominations);
+
+    for(int i = 0; i < rowCount; i++) {
+      for(int j = 0; j < columnCount; j++) {
+        if(j == 0) {
+          // the result thingy is <0,0>
+        } else {
+          if(denoms.getElement(i) > j) {
+            t[i][j] = Tuple.IMPOSSIBLE;
+          }
+        }
+      }
+    }
 
     return "";
   }
