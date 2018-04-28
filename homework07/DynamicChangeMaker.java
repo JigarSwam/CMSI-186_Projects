@@ -35,10 +35,10 @@ public class DynamicChangeMaker {
             if(j >= denoms.getElement(i)) {
               if(t[i][j-denoms.getElement(i)].isImpossible()) {
                 t[i][j] = Tuple.IMPOSSIBLE;
-              }            
-            } else {
-              t[i][j].setElement(i, 1);
+              } else {
+                t[i][j].setElement(i, 1);
             }
+          }
             if(i != 0) {
               if(t[i-1][j].isImpossible()) {
                 t[i][j] = Tuple.IMPOSSIBLE;

@@ -1,3 +1,36 @@
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * File name  :  DynamicChangemakerTestHarness.java
+ * Purpose    :  Test harness for verification of the ChangeMaker class
+ * @author    :  Professor Don Murphy
+ * @author    :  B.J. Johnson totally ripped off from the original
+ * Date       :  2017-04-19
+ * Description:  This program provides a test harness for running tests to verify correct operaion of the
+ *                "ChangeMaker.java" class.  This class is intended to be used as part of homework 7, the
+ *                coin changemaker, which is a "Dynamic Programming" algorithm.
+ * Notes      :  None
+ * Warnings   :  None
+ *
+ *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ * Revision History
+ * ================
+ *   Ver      Date     Modified by:  Reason for change or modification
+ *  -----  ----------  ------------  ---------------------------------------------------------------------
+ *  1.0.0  2017-04-19  B.J. Johnson  Initial release; stolen blatently from Professor Don Murphy with his
+ *                                    express permission and blessing; just added this comment block
+ *  1.1.0  2017-04-28  B.J. Johnson  Added complete JavaDocs; added "throws" clauses to the methods that
+ *                                    use them; added explanatory notes to comments; added "testCount"
+ *                                    field and "makeTwoDigits" method to implement automated test count
+ *                                    during test runs; added MAX_DENOM_VALUE constant for testing. along
+ *                                    with random Tuple generation, just for grins and giggles [not really
+ *                                    test-able, since it's the Forrest Gump of Tuples]
+ *  1.2.0  2017-05-01  B.J. Johnson  Added a few more test cases, running tests for euros and swiss francs
+ *                                    as well as a couple of extra tests for bogus denomination values to
+ *                                    check throwing exceptions and to verify that *something* returns an
+ *                                    "Impossible tuple" result.  Ready to commit the final version.
+ *  1.3.0  2018-04-25  B.J. Johnson  Added a few more test cases, checking for invalid inputs and for
+ *                                    a couple more "odd" demonimations.  Corrected incorrect spellings
+ *
+ *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -62,14 +95,14 @@ public class DynamicChangemakerTestHarness {
       displaySuccessIfTrue( false );
    }
 
-   /**
+  /**
    *  method to run tests on USA denominations of coins; we all know what they are...
    *   don't forget the 50 cent piece and the Sarah B. Anthony dollar [100-cent] coin!!
    */
    public static void test_USA() {
 
       int[] usaDenominations  = new int[] { 25, 10, 5, 1 };
-      Tuple result;
+      Tuple result = null;
 
       System.out.println( "\n\n  TESTING TO FIND OPTIMAL SOLUTION TO MAKING 99 cents USING US COINS" );
       System.out.println( "  ==================================================================" );
@@ -132,6 +165,7 @@ public class DynamicChangemakerTestHarness {
          e.printStackTrace();
          displayFailure();
       }
+
       System.out.println( "\n\n  TESTING TO FIND OPTIMAL SOLUTION USING NON-STANDARD DENOMINATIONS" );
       System.out.println( "  =================================================================" );
       int[] newDenominations  = new int[] { 2, 3 };
@@ -166,6 +200,7 @@ public class DynamicChangemakerTestHarness {
          e.printStackTrace();
          displayFailure();
       }
+
       newDenominations  = new int[] { 1, 7, 9 };
       System.out.println( "\n    Test" + makeTwoDigits() + ": testing optimal solution for 12 cents using " + Arrays.toString( newDenominations ) + ": " );
       result = DynamicChangeMaker.makeChangeWithDynamicProgramming( newDenominations, 12 );
@@ -199,6 +234,7 @@ public class DynamicChangemakerTestHarness {
          e.printStackTrace();
          displayFailure();
       }
+
       newDenominations  = new int[] { 23, 19, 17, 13, 11  };
       System.out.println( "\n    Test" + makeTwoDigits() + ": testing for optimalsolution for 1357911 cents using " + Arrays.toString( newDenominations ) + ": " );
       System.out.println( "      This will take a second or two - please be patient......" );
@@ -251,6 +287,7 @@ public class DynamicChangemakerTestHarness {
       }
 
    }
+
    public static void test_SwissFrancs() {
 
       int[] francDenominations  = new int[] { 5, 10, 20, 50 };
@@ -288,6 +325,7 @@ public class DynamicChangemakerTestHarness {
          e.printStackTrace();
          displayFailure();
       }
+
       System.out.println( "\n    Test" + makeTwoDigits() + ": testing optimal solution for 135 cents: " );
       result = DynamicChangeMaker.makeChangeWithDynamicProgramming( francDenominations, 135 );
       try {
@@ -297,6 +335,7 @@ public class DynamicChangemakerTestHarness {
          e.printStackTrace();
          displayFailure();
       }
+
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -343,7 +382,8 @@ public class DynamicChangemakerTestHarness {
       Tuple rwoDenominations = new Tuple( myDenoms );
       return rwoDenominations;
    }
-   /**
+
+  /**
    * method to test a bogus set of denominations which includes a negative amount
    */
    public static void test_BogusDenominations1() {
@@ -385,7 +425,8 @@ public class DynamicChangemakerTestHarness {
          displayFailure();
       }
    }
-   /**
+
+  /**
    * method to test a bogus set of denominations which includes repeats
    */
    public static void test_BogusDenominations3() {
