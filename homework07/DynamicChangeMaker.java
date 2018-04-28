@@ -27,39 +27,45 @@ public class DynamicChangeMaker {
     for(int i = 0; i < rowCount; i++) {
       for(int j = 0; j < columnCount; j++) {
         if(j == 0) {
-          // the result thingy is <0,0>
+          t[i][j] = new Tuple(denoms.length());
         } else {
           if(denoms.getElement(i) > j) {
             t[i][j] = Tuple.IMPOSSIBLE;
-            if(some_check_to_see_if_we_are_ABLE_to_look_backwards) {
-              // if the cell looking backward is NOT an "IMPOSSIBLE", add it
+            if(t[i][j-denoms.getElement(i)].isImpossible()) {
+              t[i][j] = Tuple.IMPOSSIBLE;
+            } else {
+              t[i][j] = t[i][j-denoms.getElement(i)];
             }
             if(i != 0) {
-              // if the cell above is impossible, basically do nothing since
-                    //  this the current cell is already IMPOSSIBLE
-
-                    // else if the cell above has a total that is less than the current
-                    //  cell, copy it down
+              if(t[i-1][j].isImpossible()) {
+                t[i][j] = Tuple.IMPOSSIBLE;
+              } else if(t[i-1][j].total() < t[i][j].total()) {
+                t[i][j] = t[i-1][j];
+              }
             }
-          }
-        } else {
-          // make a new tuple with a one in the current demonimation index
+          } else {
+          t[i][j].setElement(i, 1);
            if((j - denominations[i]) >= 0) {
-             // if it's IMPOSSIBLE, mark the current cell IMPOSSIBLE, too
-             // else, add the previous cell to the current cell
+             if(t[i][j-denoms.getElement(i)].isImpossible()) {
+               t[i][j] = Tuple.IMPOSSIBLE;
+             } else {
+               t[i][j] = t[i][j-1];
+             }
            }
-           if( i != 0 ) {
+           if(i != 0) {
              // if the cell above is impossible, basically do nothing since
-             //  this the current cell is already IMPOSSIBLE
-             // else if the cell above has a total that is less than the current
-             //  cell, copy it down
+             if(t[i-1][j].isImpossible()) {
+               t[i][j] = t[i][j];
+             } else if(t[i-1][j].total() < t[i][j].total()) {
+               t[i][j] = t[i-1][j];
+             }
            }
          }
        }
      }
    }
-    return "";
-  }
+   return "";
+ }
+}
   // validating arguments methods
   // helper methods
-}
