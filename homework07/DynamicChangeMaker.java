@@ -31,11 +31,33 @@ public class DynamicChangeMaker {
         } else {
           if(denoms.getElement(i) > j) {
             t[i][j] = Tuple.IMPOSSIBLE;
-          }
-        }
-      }
-    }
+            if(some_check_to_see_if_we_are_ABLE_to_look_backwards) {
+              // if the cell looking backward is NOT an "IMPOSSIBLE", add it
+            }
+            if(i != 0) {
+              // if the cell above is impossible, basically do nothing since
+                    //  this the current cell is already IMPOSSIBLE
 
+                    // else if the cell above has a total that is less than the current
+                    //  cell, copy it down
+            }
+          }
+        } else {
+          // make a new tuple with a one in the current demonimation index
+           if((j - denominations[i]) >= 0) {
+             // if it's IMPOSSIBLE, mark the current cell IMPOSSIBLE, too
+             // else, add the previous cell to the current cell
+           }
+           if( i != 0 ) {
+             // if the cell above is impossible, basically do nothing since
+             //  this the current cell is already IMPOSSIBLE
+             // else if the cell above has a total that is less than the current
+             //  cell, copy it down
+           }
+         }
+       }
+     }
+   }
     return "";
   }
   // validating arguments methods
