@@ -30,7 +30,7 @@ public class DynamicChangeMaker {
 
   public static Tuple makeChangeWithDynamicProgramming(int[] denominations, int target) {
     if ((denominations.length < 1) || (target < 0)) {
-     System.out.println("BAD DATA: No Coins Found");
+     System.out.println("BAD DATA: No Coins Found OR Target is negative");
      return Tuple.IMPOSSIBLE;
    }
    for (int i = 0; i < denominations.length; i++) {
@@ -39,6 +39,15 @@ public class DynamicChangeMaker {
        return Tuple.IMPOSSIBLE;
      }
    }
+   for (int i = 0; i < denominations.length; i++) {
+     for (int j = i + 1; j < denominations.length; j++) {
+       if(denominations[i] == denominations[j]) {
+         System.out.println("BAD DATA: Repeat Denominations");
+         return Tuple.IMPOSSIBLE;
+       }
+     }
+   }
+
 
    Tuple[][] t = new Tuple[target + 1][denominations.length];
 
@@ -65,7 +74,7 @@ public class DynamicChangeMaker {
               t[col][row] = t[col][row - 1];
             }
           }
-          // impossible tuple check and BAD DATA thingy
+          // impossible tuple check, if tuple.length == 0, impossible tuple
         }
       }
       return t[target][denominations.length - 1];
