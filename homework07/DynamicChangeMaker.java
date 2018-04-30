@@ -30,11 +30,13 @@ public class DynamicChangeMaker {
 
   public static Tuple makeChangeWithDynamicProgramming(int[] denominations, int target) {
     if ((denominations.length < 1) || (target < 0)) {
-     throw new IllegalArgumentException();
+     System.out.println("BAD DATA: No Coins Found");
+     return Tuple.IMPOSSIBLE;
    }
    for (int i = 0; i < denominations.length; i++) {
      if (denominations[i] < 1) {
-       throw new IllegalArgumentException();
+       System.out.println("BAD DATA: Invalid denominations");
+       return Tuple.IMPOSSIBLE;
      }
    }
 
