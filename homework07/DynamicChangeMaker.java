@@ -63,6 +63,7 @@ public class DynamicChangeMaker {
               t[col][row] = t[col][row - 1];
             }
           }
+          // impossible tuple check and BAD DATA thingy
         }
       }
       return t[target][denominations.length - 1];
