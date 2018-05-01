@@ -19,6 +19,7 @@ public class DynamicChangeMaker {
    *  @param denominations  Integer Array of the values used to add up to target value.
    *  @param target  Integer value of the intended total from the denominations
    * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+   // get rid of this
    public static void main(String[] args) {
      int[] denoms = new int[3];
      denoms[0] = 1;
@@ -74,9 +75,12 @@ public class DynamicChangeMaker {
               t[col][row] = t[col][row - 1];
             }
           }
-          // impossible tuple check, if tuple.length == 0, impossible tuple
         }
       }
-      return t[target][denominations.length - 1];
+      if(t[target][denominations.length -1].length() == 0) {
+        return Tuple.IMPOSSIBLE;
+      } else {
+        return t[target][denominations.length - 1];
+      }
     }
   }
