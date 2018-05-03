@@ -1,6 +1,6 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * File name  :  DynamicChangeMaker.java
- * Purpose    :  Find the best
+ * Purpose    :  Find the most efficient assortment of coins in order to get the target amount.
  * @author    :  Jigar Swaminarayan
  * Date       :  2017-24-17
  * Description:  Program to determine the most efficient amount of coins needed to
@@ -10,24 +10,12 @@
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 public class DynamicChangeMaker {
-  public static int rowCount = 0;
-  public static int columnCount = 0;
-  public static Tuple result;
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method that takes an integer array of denominations and a integer that is the target value.
    *  @param denominations  Integer Array of the values used to add up to target value.
    *  @param target  Integer value of the intended total from the denominations
    * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-   // get rid of this
-   public static void main(String[] args) {
-     int[] denoms = new int[3];
-     denoms[0] = 1;
-     denoms[1] = 3;
-     denoms[2] = 4;
-     int tar = 9;
-     System.out.println(makeChangeWithDynamicProgramming(denoms, tar));
-   }
 
   public static Tuple makeChangeWithDynamicProgramming(int[] denominations, int target) {
     if ((denominations.length < 1) || (target < 0)) {
