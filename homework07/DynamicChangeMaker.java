@@ -58,8 +58,8 @@ public class DynamicChangeMaker {
           if (row > 0) {
             if ( (col < denominations[row]) ||
                  (t[col][row].length() == 0) ||
-                 ( (t[col][row - 1].total() < t[col][row].total()) &&
-                   (t[col][row - 1].length() != 0) ) ) {
+                 ((t[col][row - 1].total() < t[col][row].total()) &&
+                   (t[col][row - 1].length() != 0))) {
               t[col][row] = t[col][row - 1];
             }
           }
